@@ -150,3 +150,5 @@ saveRDS(z_dframe, file="data/zData.RDS") # .RDS suffix is not required, but good
 unfrozen_Z <- readRDS("data/zData.RDS")
 
 unfrozen_Z
+
+my_data <- read.table(file="data/ExcelDataTemplate.csv", header=TRUE) #etc 
