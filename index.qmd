@@ -5,3 +5,9 @@ title: "CompBio_Feb"
 This is a Quarto website.
 
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+
+[Homework 3] (<Homework)
+
+[Homework 4](<## Homework 4.R.2.4.26.R>)
+
+[Homework 5]
