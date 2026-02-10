@@ -46,19 +46,18 @@ typeof(eigenvalues)
 typeof(eigenvectors)
 # they are complex
 
-###### Question 2
+###### Question 2 ######################################################
 my_matrix <- matrix(runif(0:1), nrow = 4, ncol = 4)
 my_matrix
 
-my_logical <- runif(100, min=0, max=1 )
-my_logical
-#my_logical[my_logical > 0.5]
-my_logical > 0.5
-
+z <- runif(100, min=0, max=1)
+my_logical <- z > 0.5
+print(my_logical)
 
 my_letters <- c("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z")
-my_letters <- letters
+#my_letters <- letters # I think this line of code is uneccessary
 my_letters 
+
 
 my <- list(my_matrix[2,2], my_logical[2], my_letters[2])
 print(my)
@@ -69,14 +68,11 @@ typeof(my_letters)
 
 typeof(c(my_matrix, my_logical, my_letters))
 # the typeof function is only looking at one part of the list, not the 3 individul vectors
-typeof(my) 
+my_vector <- c(my_matrix[[1]], my_logical[[2]], my_letters[[3]])
+print(my_vector)
+# the data type of this vector has a double (my_matrix), character (my_logical), and character (my_letter) data types in the vector
 
-typeof(c)
-### come back to finish number 2
-# email george new link to repository
-# email him code for HW3
-
-##### Question 3
+##### Question 3 ###########################################
 # need to create a df
 column <- 
 row <-
@@ -84,13 +80,24 @@ row <-
 df <- data.frame(ncol = 2, nrow = 26)
 print(df)
 
+# When to use the sample function vs runif?
+#my_unis <- sample(0:10, 26, replace = TRUE)
+#print(my_unis)
 
-my_unis <- sample(0:10, 26, replace = TRUE)
-print(my_unis)
+my_unis <- runif(26, min=0, max=10)
+my_unis
 my_letters <- sample(LETTERS, 26)
 my_letters
 # NOW you create the df
-df <- data.frame(ncol = 2, nrow = 26)
+df <- data.frame(my_unis, my_letters, stringsAsFactors=FALSE)
+df
+df[sample(length(my_unis), size = 4, replace = FALSE), 1] <- NA
 
-fourrows <- sample(df[4,]) <- NA
+which(!complete.cases(my_df$my_unis))
+
+df <- df[order(df$my_letters),]
+
+mean(df$my_unis, na.rm = TRUE)
+##############################################################
+
 
