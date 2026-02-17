@@ -167,3 +167,152 @@ head(growthDF)
 plot(x = growthDF$r, y = growthDF$N_t)  # this is supposed to look like log growth model, why does it look linear?
 
 
+################   ##############
+## 2.17.26
+## E Bansbach
+## For Loops II
+
+# continuing from above
+
+#####################################
+# 2D parameter sweep for log growth function
+# vectors for r and k parameters
+r_values <- seq(0,1, length.out = 100)
+K_values <- seq(10,1000, length.out = 100)
+
+# create storage matrix for outputs
+stor_mat <- matrix(NA, nrow = length(r_values), ncol = length(K_values))
+
+growth_sweep <- function(rvec, kvec){
+  stor_mat <- matrix(NA, nrow = length(r_vec), ncol = length(K_vec))
+
+  for (i in seq_along(r_vec)){ # rows
+  for (j in seq_along(K_vec)){ # cols
+
+    # run log growth
+    tmp_df <- log_growth(r = r_vec[i], K = K_vec[j])
+
+    # store max n into 2d matrix
+    stor_mat[i,j] <- max(tmp_df$population)  # i and j are both indexing variables
+
+  }
+
+}
+return(stor_mat)
+
+}
+
+# run growth param sweep
+growth_mat <- growth_sweep(rvec = r_values, kvec = K_values)
+growth_mat
+
+log_growth(r = r_values[i], K = K_values[j])
+##### K_vec  not found in growth_sweep()
+
+#### Outputs a data frame #############################
+##numParms <- 100
+##r_values <- seq(0,1, length.out = numParms)
+##K_values <- seq(10,1000, length.out = numParms)
+
+r_values <- seq(0,1, length.out = 100)
+K_values <- seq(10,1000, length.out = 100)
+
+# create storage matrix for outputs
+stor_mat <- matrix(NA, nrow = length(r_values), ncol = length(K_values))
+
+growth_sweep <- function(rvec, kvec){
+  # row indexing variable
+  counter <- 1
+
+  # create storage dataframe
+  dfLenth <- length(rvec)*length(kvec) # how long is DF
+  r_out <- rep(NA, dfLenth)
+  k_out <- rep(NA, dfLenth)
+  maxn_out <- rep(NA, dfLenth)
+
+  # turn vecs into df
+  storageDF <- data.frame(r_out, k_out, maxn_out)
+
+
+  stor_mat <- matrix(NA, nrow = length(rvec), ncol = length(kvec))
+
+
+  for (i in seq_along(r_vec)){ # rows
+  for (j in seq_along(K_vec)){ # cols
+
+    # run log growth
+    tmp_df <- log_growth(r = r_vec[i], K = K_vec[j])
+
+    # store max n into 2d matrix
+    # stor_mat[i,j] <- max(tmp_df$population)  # i and j are both indexing variables
+    storageDF$maxn_out[counter] <- max(tmp_df$population)
+    storageDF$r_out[counter] <- rvec[i] # value for r stored
+    storageDF$k_out[counter] <- kvec[j] # value for k stored
+
+    counter <- counter + 1 # increase counter
+  }
+
+}
+return(storageDF)
+
+}
+
+# run growth param sweep
+growth_mat <- growth_sweep(rvec = r_values, kvec = K_values)
+
+head(df, 20)
+
+ggplot(data = df, aes(X = r_out, Y = k_out, fill = maxn_out)) + geom_tile()
+
+
+
+# create a random walk function
+
+######################################################
+# Name: ran_walk
+# purpose: conducts a random walk
+# input: times = number of time steps
+#          n1 = initial pop size
+#          lambda = finite rate of increase
+#          noise_sd = 10     #(makes walk random)
+# output:
+#          vector n with pop size > 0 until extinction
+#
+library(ggplot2)
+
+ran_walk <- function(times = 100, n1 = 50, lambda = 1, noise_sd = 10){
+  n <- rep(NA, times)  # create our output vec; aka storage container
+  n[1] <- n1 # initialize init pop size, init pop is 50
+  noise <- rnorm(n = 100, mean = 0, sd = noise_sd) # created noise/error # doing this outside of loop, can just index into this (much easier)
+
+  for( i in 1:(times-1)){  # repeats/loops 99 times
+    n[i + 1] <- lambda*n[i] + noise[i] # indexing into i + 1 gives us the second position; lamda low gives us an extinction w/ control function
+    if(n[i + 1] <= 0){  # this gives extinction 
+      n[i + 1] <- NA
+      cat("Population extinction at time", i+1, "\n")
+      break
+    }
+
+  }
+  return(n) # closes out for loop 
+
+}
+
+x <- ran_walk()
+print(x)
+
+# plotting with default values
+qplot(x=1:100, y=ran_walk(), geom="line")  # creates a line plot w/ geom
+
+# no noise/not so random walk
+qplot(x=1:100, y=ran_walk(noise_sd=0), geom="line")
+# lamda = 1, n + 0 + n, so its a flat line; lamda is our scalar
+
+# no noise and adjust lamda
+qplot(x=1:100, y=ran_walk(lambda = 0.92, noise_sd=0), geom="line")
+
+# add some stochasticity back (have some noise) and lamda >1
+qplot(x=1:100, y=ran_walk(lambda = 1.01, noise_sd=10), geom="line")
+
+
+
