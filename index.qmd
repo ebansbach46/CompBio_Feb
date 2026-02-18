@@ -6,7 +6,8 @@ This is a Quarto website.
 
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 
-This is homework 3 [Homework 3](<Homework 3.html)
+This is homework 3 
+[Homework 3](Homework3.html)
 
 [Homework 4](<## Homework 4.R.2.4.26.R>)
 

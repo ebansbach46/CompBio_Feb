@@ -24,3 +24,5 @@ print(mat)
 t_mat <- t(mat)
 print(t_mat)
 ```
+
+quarto render
