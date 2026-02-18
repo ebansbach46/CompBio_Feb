@@ -10,4 +10,6 @@ To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 
 [Homework 4](<## Homework 4.R.2.4.26.R>)
 
+[Homework 4:](<Homework 4.html>)
+
 [Homework 5]
