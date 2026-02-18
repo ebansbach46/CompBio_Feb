@@ -1,0 +1,26 @@
+---
+title: "Homework 3"
+format: html
+---
+
+This is homework 3-technically
+
+
+```{r}
+# Question 1
+n_dims <- sample(3:10, 1)
+n_dims
+
+seq(from=1, to=n_dims^2)
+n_dims2 <- seq(from=1, to=n_dims^2)
+n_dims2
+
+sample(n_dims^2)
+shuffled <- sample(n_dims^2)
+
+mat <- matrix(data=shuffled, nrow = n_dims, ncol=n_dims)
+print(mat)
+
+t_mat <- t(mat)
+print(t_mat)
+```
