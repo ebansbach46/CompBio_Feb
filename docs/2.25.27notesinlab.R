@@ -170,8 +170,8 @@ select(iris1, -(Petal.Length:Petal.Width))
 
 ########################
 
-
-filter(iris, Species=="versicolor", Sepal.Length > 6, Sepal.Width > 2.5)
+iris1<-iris%>%
+filter(Species=="versicolor", Sepal.Length > 6, Sepal.Width > 2.5)
 filter(iris, Species=="virginica", Sepal.Length > 6, Sepal.Width > 2.5)
 
 select(iris, -(Petal.Length:Petal.Width))%>%
@@ -187,7 +187,7 @@ iris1 <- iris %>%
 select(iris, sepal_length=Sepal.Length)
 select(iris, sepal_width=Sepal.Width)
 iris1 <- iris%>%
-  filter(iris, Species=="versicolor", sepal_length > 6, sepal_width > 2.5)%>%
+  filter(Species=="versicolor", Sepal_length > 6, sepal_width > 2.5)%>%
   filter(iris, Species=="virginica", sepal_length > 6, sepal_width > 2.5)%>%
   select(iris, -(Petal.Length:Petal.Width))
 iris1
@@ -197,12 +197,24 @@ iris%>%
   filter(iris, Species=="virginica", sepal_length > 6, sepal_width > 2.5)%>%
   select(iris, -(Petal.Length:Petal.Width))
 
-iris%>%
+iris1 <- iris%>%
   select(iris, Species=="versicolor", sepal_length > 6, sepal_width > 2.5)%>%
   select(iris, Species=="virginica", sepal_length > 6, sepal_width > 2.5)%>%
   select(iris, -(Petal.Length:Petal.Width))
+##########
+iris1 <- iris%>%
+  select(iris, Species != "setosa" & sepal_length > 6, sepal_width > 2.5)
+str(iris1)
 
+iris1 <- iris%>%
+  select(iris, Species != "setosa" & Sepal.Length > 6, Sepal.Width > 2.5)
+###########3
 #####
+data(iris)
+library(dplyr)
+library(tidyverse)
+str(iris)
+########################################
 iris0 <- filter(iris, Species=="virginica", Sepal.Length > 6, Sepal.Width > 2.5| Species=="versicolor", Sepal.Length > 6, Sepal.Width > 2.5)
 iris0
 iris1 <-select(iris0, -(Petal.Length:Petal.Width))
