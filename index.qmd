@@ -14,9 +14,12 @@ This is homework 3
 [Homework 4](<hw4html.qmd>)
 --------------------
 
-[Homework 5](<# Homework 5.html>)
+[Homework 5](hw5html.qmd)
 --------------------------------
 
-[Homework 6](<Homework_6.html)
-
+[Homework 6](hw6.html)
 ---------------------------
+
+
+[Homework 5](<hw5html.qmd>)
+--------------------------------

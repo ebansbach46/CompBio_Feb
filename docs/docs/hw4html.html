@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CompBio_Feb</title>
+<title>Untitled – CompBio_Feb</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +23,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,8 +69,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -80,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">CompBio_Feb</span>
     </a>
   </div>
@@ -91,11 +120,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -114,11 +143,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#homework-3" id="toc-homework-3" class="nav-link active" data-scroll-target="#homework-3">Homework 3</a></li>
-  <li><a href="#homework-4" id="toc-homework-4" class="nav-link" data-scroll-target="#homework-4">Homework 4</a></li>
-  <li><a href="#homework-5" id="toc-homework-5" class="nav-link" data-scroll-target="#homework-5">Homework 5</a></li>
-  <li><a href="#homework-6" id="toc-homework-6" class="nav-link" data-scroll-target="#homework-6">Homework 6</a></li>
-  <li><a href="#homework-5-1" id="toc-homework-5-1" class="nav-link" data-scroll-target="#homework-5-1">Homework 5</a></li>
+  <li><a href="#homework-4" id="toc-homework-4" class="nav-link active" data-scroll-target="#homework-4">Homework 4</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">2.4.26</a></li>
+  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a>
+  <ul class="collapse">
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
+  </ul></li>
+  <li><a href="#need-to-create-a-df" id="toc-need-to-create-a-df" class="nav-link" data-scroll-target="#need-to-create-a-df">need to create a df</a></li>
+  <li><a href="#when-to-use-the-sample-function-vs-runif" id="toc-when-to-use-the-sample-function-vs-runif" class="nav-link" data-scroll-target="#when-to-use-the-sample-function-vs-runif">When to use the sample function vs runif?</a></li>
   </ul>
 </nav>
     </div>
@@ -127,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">CompBio_Feb</h1>
+<h1 class="title">Untitled</h1>
 </div>
 
 
@@ -144,23 +176,52 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This is a Quarto website.</p>
-<p>To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
-<p>This is homework 3</p>
-<section id="homework-3" class="level2">
-<h2 class="anchored" data-anchor-id="homework-3"><a href="Homework_3.html">Homework 3</a></h2>
-</section>
 <section id="homework-4" class="level2">
-<h2 class="anchored" data-anchor-id="homework-4"><a href="hw4html.qmd">Homework 4</a></h2>
+<h2 class="anchored" data-anchor-id="homework-4">Homework 4</h2>
 </section>
-<section id="homework-5" class="level2">
-<h2 class="anchored" data-anchor-id="homework-5"><a href="hw5html.qmd">Homework 5</a></h2>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section">2.4.26</h2>
 </section>
-<section id="homework-6" class="level2">
-<h2 class="anchored" data-anchor-id="homework-6"><a href="hw6.html">Homework 6</a></h2>
+<section id="question-1" class="level1">
+<h1>Question 1</h1>
+<p>n_dims &lt;- sample(3:10, 1) n_dims</p>
+<p>seq(from=1, to=n_dims^2) n_dims2 &lt;- seq(from=1, to=n_dims^2) n_dims2</p>
+<p>sample(n_dims^2) shuffled &lt;- sample(n_dims^2)</p>
+<p>mat &lt;- matrix(data=shuffled, nrow = n_dims, ncol=n_dims) print(mat)</p>
+<p>t_mat &lt;- t(mat) print(t_mat) #the matrix values changed, as the values for row 1 are now the values in column 1, and so forth #m_dframe &lt;- as.data.frame(mat)</p>
+<p>rowSums(t_mat) ### t_mat(rowSums(t_mat)==1,n_dims) firstrow &lt;- t_mat[1,] print(sum(firstrow)) print(mean(firstrow)) lastrow &lt;-t_mat[, n_dims] print(sum(lastrow)) print(mean(lastrow))</p>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1"></h2>
+<p>eigen(t_mat,symmetric = FALSE, only.values = TRUE, EISPACK = FALSE)</p>
+<p>m &lt;- matrix(t_mat, nrow = n_dims, ncol = n_dims) m</p>
+<p>results &lt;- eigen(m) m eigenvalues &lt;- results<span class="math inline">\(values
+eigenvectors &lt;- results\)</span>vectors print(eigenvalues) print(eigenvectors) ###eigen $values and $vectors are imaginary numbers typeof(eigenvalues) typeof(eigenvectors) # they are complex</p>
+<section id="question-2" class="level6">
+<h6 class="anchored" data-anchor-id="question-2">Question 2</h6>
+<p>my_matrix &lt;- matrix(runif(0:1), nrow = 4, ncol = 4) my_matrix</p>
+<p>z &lt;- runif(100, min=0, max=1) my_logical &lt;- z &gt; 0.5 print(my_logical)</p>
+<p>my_letters &lt;- c(“a”,“b”,“c”,“d”,“e”,“f”,“g”,“h”,“i”,“j”,“k”,“l”,“m”,“n”,“o”,“p”,“q”,“r”,“s”,“t”,“u”,“v”,“w”,“x”,“y”,“z”) #my_letters &lt;- letters # I think this line of code is uneccessary my_letters</p>
+<p>my &lt;- list(my_matrix[2,2], my_logical[2], my_letters[2]) print(my)</p>
+<p>typeof(my_matrix) typeof(my_logical) typeof(my_letters)</p>
+<p>typeof(c(my_matrix, my_logical, my_letters)) # the typeof function is only looking at one part of the list, not the 3 individul vectors my_vector &lt;- c(my_matrix[[1]], my_logical[[2]], my_letters[[3]]) print(my_vector) # the data type of this vector has a double (my_matrix), character (my_logical), and character (my_letter) data types in the vector</p>
 </section>
-<section id="homework-5-1" class="level2">
-<h2 class="anchored" data-anchor-id="homework-5-1"><a href="hw5html.qmd">Homework 5</a></h2>
+<section id="question-3" class="level5">
+<h5 class="anchored" data-anchor-id="question-3">Question 3</h5>
+</section>
+</section>
+</section>
+<section id="need-to-create-a-df" class="level1">
+<h1>need to create a df</h1>
+<p>column &lt;- row &lt;-</p>
+<p>df &lt;- data.frame(ncol = 2, nrow = 26) print(df)</p>
+</section>
+<section id="when-to-use-the-sample-function-vs-runif" class="level1">
+<h1>When to use the sample function vs runif?</h1>
+<p>#my_unis &lt;- sample(0:10, 26, replace = TRUE) #print(my_unis)</p>
+<p>my_unis &lt;- runif(26, min=0, max=10) my_unis my_letters &lt;- sample(LETTERS, 26) my_letters # NOW you create the df df &lt;- data.frame(my_unis, my_letters, stringsAsFactors=FALSE) df df[sample(length(my_unis), size = 4, replace = FALSE), 1] &lt;- NA</p>
+<p>which(!complete.cases(my_df$my_unis))</p>
+<p>df &lt;- df[order(df$my_letters),]</p>
+<p>mean(df$my_unis, na.rm = TRUE) ##############################################################</p>
 
 
 </section>

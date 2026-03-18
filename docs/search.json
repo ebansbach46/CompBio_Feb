@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "CompBio_Feb",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\nThis is homework 3 Homework 3 ———————"
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\nThis is homework 3"
   },
   {
     "objectID": "about.html",
@@ -33,5 +33,54 @@
     "title": "CompBio_Feb",
     "section": "Homework 5",
     "text": "Homework 5"
+  },
+  {
+    "objectID": "index.html#homework-3",
+    "href": "index.html#homework-3",
+    "title": "CompBio_Feb",
+    "section": "Homework 3",
+    "text": "Homework 3"
+  },
+  {
+    "objectID": "docs/hw4html.html#section",
+    "href": "docs/hw4html.html#section",
+    "title": "Untitled",
+    "section": "2.4.26",
+    "text": "2.4.26"
+  },
+  {
+    "objectID": "docs/hw4html.html#section-1",
+    "href": "docs/hw4html.html#section-1",
+    "title": "Untitled",
+    "section": "",
+    "text": "eigen(t_mat,symmetric = FALSE, only.values = TRUE, EISPACK = FALSE)\nm &lt;- matrix(t_mat, nrow = n_dims, ncol = n_dims) m\nresults &lt;- eigen(m) m eigenvalues &lt;- results\\(values\neigenvectors &lt;- results\\)vectors print(eigenvalues) print(eigenvectors) ###eigen $values and $vectors are imaginary numbers typeof(eigenvalues) typeof(eigenvectors) # they are complex\n\nQuestion 2\nmy_matrix &lt;- matrix(runif(0:1), nrow = 4, ncol = 4) my_matrix\nz &lt;- runif(100, min=0, max=1) my_logical &lt;- z &gt; 0.5 print(my_logical)\nmy_letters &lt;- c(“a”,“b”,“c”,“d”,“e”,“f”,“g”,“h”,“i”,“j”,“k”,“l”,“m”,“n”,“o”,“p”,“q”,“r”,“s”,“t”,“u”,“v”,“w”,“x”,“y”,“z”) #my_letters &lt;- letters # I think this line of code is uneccessary my_letters\nmy &lt;- list(my_matrix[2,2], my_logical[2], my_letters[2]) print(my)\ntypeof(my_matrix) typeof(my_logical) typeof(my_letters)\ntypeof(c(my_matrix, my_logical, my_letters)) # the typeof function is only looking at one part of the list, not the 3 individul vectors my_vector &lt;- c(my_matrix[[1]], my_logical[[2]], my_letters[[3]]) print(my_vector) # the data type of this vector has a double (my_matrix), character (my_logical), and character (my_letter) data types in the vector\n\n\nQuestion 3"
+  },
+  {
+    "objectID": "docs/docs/hw5html.html",
+    "href": "docs/docs/hw5html.html",
+    "title": "Untitled",
+    "section": "",
+    "text": "Homework 5\n\n\n2.11.2026\n\n\nElizabeth Bansbach\n\n\nSTART OF FUNCTION\nlog_growth &lt;- function(N_0 = 250, r= 0.75, k= 1200, t_step = 1, t_final = 20, e = 2.71828){ ############################################################################## # FUNCTION: logistic growth model # PURPOSE: use an equation to create a logistic growth model representing a population size # INPUTS: numeric value for N0, r, K, e, and t_step and t_final # OUTPUT: Population size at a certain time # Purpose of the function: To plot a population size over a fixed amount of time, with a carrying capacity to create a logistic growth model #N_0 &lt;- runif(1, min = 0, max = 9999) # generate random numbers for N_0\n\n\nInputs:\nN_0 &lt;- 250 r &lt;- .75 k &lt;- 1200 e &lt;- 2.71828\nt_step &lt;- 1 t_final &lt;- seq(from = 0, to = 20, by= t_step) #################### # Outputs: N_t &lt;- (k/(1 + ((k - N_0)/N_0)e^(-rt_final)))\ndf &lt;- data.frame(N_t = N_t, t_step = t_final) print(df)\nplot(N_t, xlab=“Time (years)”, ylab=“Population Size”)\nreturn(my_out) } ########################################################3 # END FUNCTION"
+  },
+  {
+    "objectID": "index.html#homework-5-1",
+    "href": "index.html#homework-5-1",
+    "title": "CompBio_Feb",
+    "section": "Homework 5",
+    "text": "Homework 5"
+  },
+  {
+    "objectID": "docs/hw6.html",
+    "href": "docs/hw6.html",
+    "title": "Untitled",
+    "section": "",
+    "text": "Homework 6\n\nE Bansbach\n\n\n2.18.26\nlibrary(deSolve)\n\n\n\n\n\n\nFUNCTION: run_sir_model\n\n\nPURPOSE: Solve deterministic SIR model with deSolve\n\n\nINPUTS:\n\n\nbeta, gamma : transmission & recovery rates\n\n\nN : total population\n\n\nS0, I0, R0 : initial conditions\n\n\nt_start : start time\n\n\nt_end : end time\n\n\ndt : timestep\n\n\nOUTPUT:\n\n\ndata.frame with columns: time, S, I, R\n\n\nrun_sir_model &lt;- function( beta = 0.1, gamma = 0.1, N = 1000, S0 = 999, I0 = 1, R0 = 0, t_start = 0, t_end = 160, dt = 1 ) {\ninit &lt;- c(S = S0, I = I0, R = R0) times &lt;- seq(t_start, t_end, by = dt)\nsir_equations &lt;- function(time, state, parameters) { with(as.list(c(state, parameters)), { dS &lt;- -beta * S * I / N dI &lt;- beta * S * I / N - gamma * I dR &lt;- gamma * I list(c(dS, dI, dR)) }) }\nout &lt;- ode( y = init, times = times, func = sir_equations, parms = c(beta = beta, gamma = gamma, N = N) )\nas.data.frame(out) }\n\n\nstep &lt;- 0.01\nbeta_vec &lt;- seq(from=0, to=0.5, by = step) gamma_vec &lt;- seq(from=0, to=0.5, by=step)\nbeta_parms = beta_output gamma_parms = gamma_output\n\n\n\n\n\n\n\nstart of function\nsir_params &lt;- function(beta_params, gamma_params){ init_df &lt;- length(beta_vec)*length(gamma_vec)\nmax_infected &lt;- rep(NA, init_df) beta_output &lt;- rep(NA, init_df) gamma_output &lt;- rep(NA, init_df)\nsir_df &lt;- data.frame(beta_output, gamma_output, max_infected) counter &lt;- 1\nfor (i in seq_along(beta_output)){ for (j in seq_along(gamma_output)){ temp_df &lt;- run_sir_model(beta = beta_output[i], gamma = gamma_output[j])\n  sir_df$max_infected[counter] &lt;- max(temp_df$I)\n  sir_df$beta_output[counter] &lt;- beta_parms[i]\n  sir_df$gamma_output[counter] &lt;- gamma_parms[j]\n\n}\n} return(sir_df)\n} #################################################################### library(ggplot2) temp_sir_params &lt;-sir_params()\nheat_plot&lt;- function(data= temp_sir_params){ heatmap &lt;- temp_sir_params heatmap &lt;- ggplot(data = temp_sir_parms, aes(x = beta_output, y = gamma_output, fill= max_infected)) + geom_tile() return(heatmap)\n}\nheat_plot()"
+  },
+  {
+    "objectID": "index.html#homework-6",
+    "href": "index.html#homework-6",
+    "title": "CompBio_Feb",
+    "section": "Homework 6",
+    "text": "Homework 6"
   }
 ]
