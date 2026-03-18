@@ -19,7 +19,3 @@ This is homework 3
 
 [Homework 6](hw6.html)
 ---------------------------
-
-
-[Homework 5](<hw5html.qmd>)
---------------------------------

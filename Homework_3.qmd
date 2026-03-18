@@ -3,7 +3,7 @@ title: "Homework 3"
 format: html
 ---
 
-This is homework 3-technically
+This is homework 3
 
 
 ```{r}
