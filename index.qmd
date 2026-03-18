@@ -11,10 +11,10 @@ This is homework 3
 [Homework 3](Homework_3.html)
 ---------------------
 
-[Homework 4](<hw4html.qmd>)
---------------------
+[Homework 4](hw4html.html)
+--------------------------
 
-[Homework 5](hw5html.qmd)
+[Homework 5](hw5html.html)
 --------------------------------
 
 [Homework 6](hw6.html)
