@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "Homework 5"
 format: html
 ---
 
@@ -8,6 +8,7 @@ format: html
 # Elizabeth Bansbach
 
 # START OF FUNCTION
+```
 log_growth <- function(N_0 = 250, r= 0.75, k= 1200, t_step = 1, t_final = 20, e = 2.71828){
 ##############################################################################
 # FUNCTION: logistic growth model
@@ -38,4 +39,4 @@ return(my_out)
 }
 ########################################################3
 # END FUNCTION
-
+```

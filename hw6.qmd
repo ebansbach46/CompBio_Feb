@@ -1,12 +1,13 @@
 ---
-title: "Untitled"
+title: "Homework 6"
 format: html
 ---
 
 # Homework 6
-### E Bansbach
-### 2.18.26
+# E Bansbach
+# 2.18.26
 
+```
 library(deSolve)
 
 ############################################################
@@ -106,3 +107,4 @@ heat_plot<- function(data= temp_sir_params){
 }
 
 heat_plot()  
+```

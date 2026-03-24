@@ -169,7 +169,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This is homework 3-technically</p>
+<p>This is homework 3</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Question 1</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>n_dims <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">1</span>)</span>
@@ -190,8 +190,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(n_dims<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  8  7 21 38 23  5 40 30 19  6 18 10 12 22 43  1 35 48 24 31 15 32 14 25  2
-[26] 41 39 28 46 49 37 26 45 27 34  4 11 17 42 33 16 20  3 47 13 29 44  9 36</code></pre>
+<pre><code> [1] 11 49 24 13  3 37 22 34 14 41 43 27 48  4 35 21 38  9 25  2 23 42 17 19 39
+[26] 45 47 40 33 28 15  5 10 36 12 44 20 26 16  7 29 32 30 18 31  1 46  8  6</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>shuffled <span class="ot">&lt;-</span> <span class="fu">sample</span>(n_dims<span class="sc">^</span><span class="dv">2</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -199,25 +199,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3] [,4] [,5] [,6] [,7]
-[1,]   33   11   31   16   43   26    4
-[2,]   46   22    1   15   41   17   18
-[3,]    5    2   23   34   47   14   29
-[4,]    9   42   20   40   10    6    7
-[5,]    8   37   30   13   39   27   21
-[6,]   35   48    3   44   25   38   49
-[7,]   19   45   36   32   12   24   28</code></pre>
+[1,]   29   33   46    7    9   38   19
+[2,]   12   41   31   28   27    8   44
+[3,]   37    1    4   18   14   40   21
+[4,]   26   23   43   35   36   47   45
+[5,]   32   42   24   13    3    5    6
+[6,]   30   15   25   39   17   48   11
+[7,]   34    2   20   22   10   16   49</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>t_mat <span class="ot">&lt;-</span> <span class="fu">t</span>(mat)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(t_mat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3] [,4] [,5] [,6] [,7]
-[1,]   33   46    5    9    8   35   19
-[2,]   11   22    2   42   37   48   45
-[3,]   31    1   23   20   30    3   36
-[4,]   16   15   34   40   13   44   32
-[5,]   43   41   47   10   39   25   12
-[6,]   26   17   14    6   27   38   24
-[7,]    4   18   29    7   21   49   28</code></pre>
+[1,]   29   12   37   26   32   30   34
+[2,]   33   41    1   23   42   15    2
+[3,]   46   31    4   43   24   25   20
+[4,]    7   28   18   35   13   39   22
+[5,]    9   27   14   36    3   17   10
+[6,]   38    8   40   47    5   48   16
+[7,]   19   44   21   45    6   11   49</code></pre>
 </div>
 </div>
 <p>quarto render</p>
