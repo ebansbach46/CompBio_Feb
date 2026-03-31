@@ -3,12 +3,14 @@ title: "Homework 5"
 format: html
 ---
 
-# Homework 5
-# 2.11.2026
-# Elizabeth Bansbach
+2.11.2026
+Elizabeth Bansbach
 
 # START OF FUNCTION
-```
+```{r}
+library(tidyverse)
+library(ggplot2)
+
 log_growth <- function(N_0 = 250, r= 0.75, k= 1200, t_step = 1, t_final = 20, e = 2.71828){
 ##############################################################################
 # FUNCTION: logistic growth model
@@ -39,4 +41,11 @@ return(my_out)
 }
 ########################################################3
 # END FUNCTION
+```
+
+Question 2
+```{r}
+
+
+
 ```

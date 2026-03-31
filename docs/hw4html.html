@@ -117,11 +117,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#homework-4" id="toc-homework-4" class="nav-link active" data-scroll-target="#homework-4">Homework 4</a></li>
   <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">2.4.26</a></li>
   <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
-  <li><a href="#they-are-complex" id="toc-they-are-complex" class="nav-link" data-scroll-target="#they-are-complex">they are complex</a></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
   <li><a href="#the-typeof-function-is-only-looking-at-one-part-of-the-list-not-the-3-individul-vectors" id="toc-the-typeof-function-is-only-looking-at-one-part-of-the-list-not-the-3-individul-vectors" class="nav-link" data-scroll-target="#the-typeof-function-is-only-looking-at-one-part-of-the-list-not-the-3-individul-vectors">the typeof function is only looking at one part of the list, not the 3 individul vectors</a></li>
   <li><a href="#the-data-type-of-this-vector-has-a-double-my_matrix-character-my_logical-and-character-my_letter-data-types-in-the-vector" id="toc-the-data-type-of-this-vector-has-a-double-my_matrix-character-my_logical-and-character-my_letter-data-types-in-the-vector" class="nav-link" data-scroll-target="#the-data-type-of-this-vector-has-a-double-my_matrix-character-my_logical-and-character-my_letter-data-types-in-the-vector">the data type of this vector has a double (my_matrix), character (my_logical), and character (my_letter) data types in the vector</a></li>
-  <li><a href="#need-to-create-a-df" id="toc-need-to-create-a-df" class="nav-link" data-scroll-target="#need-to-create-a-df">need to create a df</a></li>
-  <li><a href="#when-to-use-the-sample-function-vs-runif" id="toc-when-to-use-the-sample-function-vs-runif" class="nav-link" data-scroll-target="#when-to-use-the-sample-function-vs-runif">When to use the sample function vs runif?</a></li>
+  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
   </ul>
 </nav>
     </div>
@@ -147,11 +146,11 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="homework-4" class="level2">
-<h2 class="anchored" data-anchor-id="homework-4">Homework 4</h2>
+<section id="homework-4" class="level1">
+<h1>Homework 4</h1>
 </section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section">2.4.26</h2>
+<section id="section" class="level1">
+<h1>2.4.26</h1>
 </section>
 <section id="question-1" class="level1">
 <h1>Question 1</h1>
@@ -203,11 +202,10 @@ print(eigenvectors)
 ###eigen $values and $vectors are imaginary numbers
 typeof(eigenvalues)
 typeof(eigenvectors)</code></pre>
+<p>they are complex</p>
 </section>
-<section id="they-are-complex" class="level1">
-<h1>they are complex</h1>
-<section id="question-2" class="level6">
-<h6 class="anchored" data-anchor-id="question-2">Question 2</h6>
+<section id="question-2" class="level1">
+<h1>Question 2</h1>
 <pre><code>my_matrix &lt;- matrix(runif(0:1), nrow = 4, ncol = 4)
 my_matrix
 
@@ -229,7 +227,6 @@ typeof(my_letters)
 
 typeof(c(my_matrix, my_logical, my_letters))</code></pre>
 </section>
-</section>
 <section id="the-typeof-function-is-only-looking-at-one-part-of-the-list-not-the-3-individul-vectors" class="level1">
 <h1>the typeof function is only looking at one part of the list, not the 3 individul vectors</h1>
 <pre><code>my_vector &lt;- c(my_matrix[[1]], my_logical[[2]], my_letters[[3]])
@@ -237,22 +234,34 @@ print(my_vector)</code></pre>
 </section>
 <section id="the-data-type-of-this-vector-has-a-double-my_matrix-character-my_logical-and-character-my_letter-data-types-in-the-vector" class="level1">
 <h1>the data type of this vector has a double (my_matrix), character (my_logical), and character (my_letter) data types in the vector</h1>
-<section id="question-3" class="level5">
-<h5 class="anchored" data-anchor-id="question-3">Question 3</h5>
 </section>
-</section>
-<section id="need-to-create-a-df" class="level1">
-<h1>need to create a df</h1>
-<p>column &lt;- row &lt;-</p>
-<p>df &lt;- data.frame(ncol = 2, nrow = 26) print(df)</p>
-</section>
-<section id="when-to-use-the-sample-function-vs-runif" class="level1">
-<h1>When to use the sample function vs runif?</h1>
-<p>#my_unis &lt;- sample(0:10, 26, replace = TRUE) #print(my_unis)</p>
-<p>my_unis &lt;- runif(26, min=0, max=10) my_unis my_letters &lt;- sample(LETTERS, 26) my_letters # NOW you create the df df &lt;- data.frame(my_unis, my_letters, stringsAsFactors=FALSE) df df[sample(length(my_unis), size = 4, replace = FALSE), 1] &lt;- NA</p>
-<p>which(!complete.cases(my_df$my_unis))</p>
-<p>df &lt;- df[order(df$my_letters),]</p>
-<p>mean(df$my_unis, na.rm = TRUE)</p>
+<section id="question-3" class="level1">
+<h1>Question 3</h1>
+<p>#need to create a df</p>
+<pre><code>column &lt;- 
+row &lt;-
+
+df &lt;- data.frame(ncol = 2, nrow = 26)
+print(df)
+
+# When to use the sample function vs runif?
+#my_unis &lt;- sample(0:10, 26, replace = TRUE)
+#print(my_unis)
+
+my_unis &lt;- runif(26, min=0, max=10)
+my_unis
+my_letters &lt;- sample(LETTERS, 26)
+my_letters
+# NOW you create the df
+df &lt;- data.frame(my_unis, my_letters, stringsAsFactors=FALSE)
+df
+df[sample(length(my_unis), size = 4, replace = FALSE), 1] &lt;- NA
+
+which(!complete.cases(my_df$my_unis))
+
+df &lt;- df[order(df$my_letters),]
+
+mean(df$my_unis, na.rm = TRUE)</code></pre>
 
 
 </section>

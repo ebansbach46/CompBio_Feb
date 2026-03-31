@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Untitled – CompBio_Feb</title>
+<title>Homework 5 – CompBio_Feb</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -118,7 +118,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">2.11.2026</a></li>
   <li><a href="#elizabeth-bansbach" id="toc-elizabeth-bansbach" class="nav-link" data-scroll-target="#elizabeth-bansbach">Elizabeth Bansbach</a></li>
   <li><a href="#start-of-function" id="toc-start-of-function" class="nav-link" data-scroll-target="#start-of-function">START OF FUNCTION</a></li>
-  <li><a href="#inputs" id="toc-inputs" class="nav-link" data-scroll-target="#inputs">Inputs:</a></li>
   </ul>
 </nav>
     </div>
@@ -127,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Untitled</h1>
+<h1 class="title">Homework 5</h1>
 </div>
 
 
@@ -155,15 +154,36 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="start-of-function" class="level1">
 <h1>START OF FUNCTION</h1>
-<p>log_growth &lt;- function(N_0 = 250, r= 0.75, k= 1200, t_step = 1, t_final = 20, e = 2.71828){ ############################################################################## # FUNCTION: logistic growth model # PURPOSE: use an equation to create a logistic growth model representing a population size # INPUTS: numeric value for N0, r, K, e, and t_step and t_final # OUTPUT: Population size at a certain time # Purpose of the function: To plot a population size over a fixed amount of time, with a carrying capacity to create a logistic growth model #N_0 &lt;- runif(1, min = 0, max = 9999) # generate random numbers for N_0</p>
-</section>
-<section id="inputs" class="level1">
-<h1>Inputs:</h1>
-<p>N_0 &lt;- 250 r &lt;- .75 k &lt;- 1200 e &lt;- 2.71828</p>
-<p>t_step &lt;- 1 t_final &lt;- seq(from = 0, to = 20, by= t_step) #################### # Outputs: N_t &lt;- (k/(1 + ((k - N_0)/N_0)<em>e^(-r</em>t_final)))</p>
-<p>df &lt;- data.frame(N_t = N_t, t_step = t_final) print(df)</p>
-<p>plot(N_t, xlab=“Time (years)”, ylab=“Population Size”)</p>
-<p>return(my_out) } ########################################################3 # END FUNCTION</p>
+<pre><code>log_growth &lt;- function(N_0 = 250, r= 0.75, k= 1200, t_step = 1, t_final = 20, e = 2.71828){
+##############################################################################
+# FUNCTION: logistic growth model
+# PURPOSE: use an equation to create a logistic growth model representing a population size
+# INPUTS: numeric value for N0, r, K, e, and t_step and t_final
+# OUTPUT: Population size at a certain time
+# Purpose of the function: To plot a population size over a fixed amount of time, with a carrying capacity to create a logistic growth model
+#N_0 &lt;- runif(1, min = 0, max = 9999) # generate random numbers for N_0
+  
+# Inputs:
+N_0 &lt;- 250
+r &lt;- .75
+k &lt;- 1200
+e &lt;- 2.71828
+  
+t_step &lt;- 1
+t_final &lt;- seq(from = 0, to = 20, by= t_step)
+####################
+# Outputs:
+N_t &lt;- (k/(1 + ((k - N_0)/N_0)*e^(-r*t_final))) 
+  
+df &lt;- data.frame(N_t = N_t, t_step = t_final) 
+print(df)
+  
+plot(N_t, xlab="Time (years)", ylab="Population Size")
+  
+return(my_out)
+}
+########################################################3
+# END FUNCTION</code></pre>
 
 
 </section>

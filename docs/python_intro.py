@@ -286,3 +286,313 @@ random.choice(arr1, size = (3,3)) # creating a new 3x3 array, populated randomly
 
 random.choice([0,1], p = [.3, .7], size = 100) # create a binary matrix/array
 # pull from 0,1 array 100 times, but zeros pulled w/ probability of 30%, vice versa
+
+
+#########################################################
+##3.24.26 python day III
+
+import numpy as np
+import scipy as sp
+import pandas as pd
+import matplotlib.pyplot as plt
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
+
+# picking up where we left off last class:
+
+x = random.normal(loc = 5, scale = 3, size = 200)    # loc = middle area of parameter, scale = variance
+plt.hist(x)   #mat plot lib abbreviation = plt
+plt.show()  # shows us the plot
+# gives a normal distribution
+
+x = random.binomial(n = 10, p = 0.5, size = 30)  # n=# of draws, p = probability of success
+print(x)  # binomial distribution, size is the length, probability set to 0.5
+plt.hist(x)
+plt.show()
+
+
+x = random.uniform(low = 1, high = 10, size = 50)  # set boundaries, low and high, bound btw 1 and 10 and 50 diff values/draws (are float values, not integers)
+print(x)
+
+# math
+# math between arrays
+# y - x # subtraction
+# y + x # addition
+# y / x # division
+# y * x # multiplication
+
+# scale everything up:
+x * 100
+
+# array multiplication
+arr2 * arr2
+
+# mean of an array:
+np.mean(arr2)
+
+# max value of array:
+np.max(arr2)
+
+######################################################
+# logic structures:
+######################################################
+
+# if statements:
+a = 3  # a is a logical
+if a >= 5:
+    print("a is greater than or equal to 5")  # this is the return
+
+# with else statement
+if a >= 5:
+    print("a is greater than or equal to 5")
+else:
+    print("a is less than 5")
+# user wants feedback, otherwise they may think something is wrong 
+
+a = 3
+b = 3
+operation = "exp"   #"mult"
+
+if operation == "mult":  # == means "equal" just like in R
+    y = a * b
+elif operation == "div":
+    y = a/b
+elif operation == "add":
+    y = a + b
+elif operation == "sub":
+    y = a - b
+else:
+    y = "I don't know that operation"  
+
+print(y)
+
+######################################################
+# LOOPS
+######################################################
+
+for i in range(2):
+    print(i)
+# loops start index "i" at zero
+# i = 0, i = 1 for range of 2
+
+l = [10, 20]
+for i in range(2):
+    print(l[i])
+# prints the objects in the list
+
+# loop on an object directly
+x = ["blue", "green", "red"]
+
+for i in x:
+    print(i)
+# loop directly on an object, i isn't a counter, its an object in the list
+# this is a very pythonic way of writing a loop
+
+# a more complicated loop
+rnd = random.uniform(low = 1, high = 5, size = 10)
+print(rnd)
+
+outList = []  # creating an empty list
+
+arr1
+for i in range(len(arr1)):  #  length 10, from 0 to 9
+    outList.append(rnd[i] + arr1[i]) # loop through array from 0 to 9, append the random value and add it to origional array
+
+print(outList)
+# now have list of 10 float values
+
+# nested loop with ifelse
+rnd2D = random.uniform(low = 0, high = 1, size = (3,3))  # 2D random array
+print(rnd2D)
+
+matOut = np.empty(shape = (3,3))   # why does empty repopulate w/ old random values
+# empty means theres placeholders there
+
+shp = rnd2D.shape
+print(shp)
+# nested loop
+for i in range(shp[0]):
+    for j in range(shp[1]):
+        if rnd2D[i,j] >= 0.5:
+            matOut[i,j] = rnd2D[i,j] * 1000
+        else: 
+            matOut[i,j] = rnd2D[i,j] / 1000
+# for each step in the loops, i and j increase by 1
+# if the value in the array is >= 0.5, do this operation and * it by 1000
+# etc
+print(matOut)
+# negative exponent, it was less than 0.5 (/), a positive exponent it was greater than 0.5 (*)
+# i = columns
+# j = rows
+
+####################################################
+# pandas is the equivelant of data frames in python
+####################################################
+# import pandas as pd   
+
+dates = pd.date_range("20130101", periods = 6)
+print(dates)
+
+df = pd.DataFrame(np.random.rand(6,4), index = dates, columns = list("ABCD"))
+print(df)
+
+# df methods
+df.head(4)
+df.tail(4)
+
+df.index  # pulls the row index names
+
+df.columns # gives column names
+
+df.describe()
+
+df.to_numpy() # returns a numpy array
+
+# indexing into pandas
+df["A"]
+df.loc[:, ["A", "B"]] # all rows, only cols A and B
+
+
+# drag downloaded csv into github python folder
+# read in csv file
+ds = pd.read_csv("iris.data.csv")
+print(ds)
+
+ds["sepal_length"] # pulliing col out
+
+ds["sepal_area"] = ds.sepal_length * ds.sepal_width
+ds.head()  # have new column called sepal_area
+
+# fully numeric [data set] filter
+df[df>.5]  # for values greater than .5, everything else will be removed thats less than .5
+#converted data less than .5 to another thing
+
+
+## 3.26.26 python day iv
+
+ds = pd.read_csv("/Users/ebansbach46/Desktop/CompBio_Feb/iris.data.csv")
+
+import matplotlib.pyplot as pit
+import numpy as np
+import pandas as pd
+
+
+##### DF grouping and summary#
+# calculate mean: use groupby method
+# goruping means for two variables
+mean_table = ds.groupby("species")[["petal_length","sepal_length"]].mean()
+print(mean_table)
+
+# creating a long form data set
+ds_long = pd.melt(ds, id_vars = ['species'], value_vars = ["sepal_width","sepal_length","petal_width","petal_length"], var_name = "vars", value_name = 'vals')
+print(ds_long)
+# indexing is column, all the values are in one column, all the names (sepal_width) are all in another column
+
+# groupby on longform data
+mult_indx = ds_long.groupby(["species", "vars"]).mean()
+
+# pandas pivot
+pd.pivot_table(ds_long, values = "vals", index =  ["vars"], columns = ["species"], aggfunc = np.mean)
+# values = "vals" is what you are pivoting on/for
+
+# calc medians
+pd.pivot_table(ds_long, values = "vals", index =  ["vars"], columns = ["species"], aggfunc = np.median)
+
+# Functions
+
+# basic function structure
+# def = defines the function
+########################################
+# START FUNCTION
+def number_adder(a,b):
+    # PURPOSE: add two nums and return the sum
+    # params: a = numeric, b = numeric
+    # output: numeric sum of a and b
+    out = a + b
+    return(out)
+
+
+########################################
+# END OF FUNCTIONN
+
+# running number adder
+number_adder(a = 3, b = 6)
+
+# a more complex function
+########################################
+# START FUNCTION
+def number_adder_two(a = None,b = None):  # if don't want variable assigned as default, do this = None
+    # PURPOSE: add two nums and return the sum
+    # params: a = numeric, b = numeric
+    # output: numeric sum of a and b
+    if a == None or b == None:
+        out = "Please provide inputs for a and b of type numeric"
+    else: 
+        out = a + b
+    return(out)
+
+########################################
+# END OF FUNCTIONN
+
+number_adder_two(a = 6)
+
+number_adder_two(a = 6, b = 4)
+
+number_adder_two(a = "out", b = 4)  # this isn't caught by the if else statement; maybe check a and b are numeric w/ if else
+
+# graphics - seaborn
+# go to terminal:
+#     conda install seaborn
+# tutorials for seaborn on their webstite
+
+import seaborn as sns
+# styles: "darkgrid", "whitegrid" "dark" "white" "ticks"
+sns.set_theme(style = "ticks", font_scale = 1.5)
+
+# scatter plot
+# species as column 
+f = sns.relplot(
+    data = ds,
+    x = "sepal_width", y = "petal_length",
+    style = "species", hue = "species"
+
+)
+plt.show()  # kinda like a print statement
+
+f.set_axis_labels("Sepal Width", "Peta Length", labelpad = 10)
+f.legend.set_title("Species")
+
+sns.set_theme(style = "white", font_scale = 1.5)
+# more simple theme
+
+sns.set_theme(style = "dark", font_scale = 1.5)
+
+# moving the legend
+sns.move_legend(
+    f, "upper center",
+    bbox_to_anchor=(0.5,1), ncol=3, title=None, frameon=False
+
+)
+
+# 'upper right' 'lower left'   etc
+
+# linear
+f = sns.lmplot(
+    data = ds,
+    x = "sepal_width", y = "petal_length",
+    hue="species", palette = "bright")
+
+# four panel histogram
+f = sns.displot(
+    ds_long,
+    x = "vals", hue = "species",
+    col="vars", col_wrap=2, height = 3,   #2x2 grid col wra =2
+    kde = True,       
+
+)
+
+# bar plot
+sns.catplot(data=ds_long, kind = "bar", x = "species", y = "vals", hue = "vars")
+
+# sns.barplot(data=ds_long, kind = "bar", x = "species", y = "vals", hue = "vars")
+# not sure if this is the right code sns.barplot, but catplot might be the preferred method

@@ -3,11 +3,10 @@ title: "Homework 6"
 format: html
 ---
 
-# Homework 6
-# E Bansbach
-# 2.18.26
+E Bansbach
+2.18.26
 
-```
+```{r}
 library(deSolve)
 
 ############################################################
@@ -57,9 +56,9 @@ run_sir_model <- function(
 
   as.data.frame(out)
 }
+```
 
-####################################################################
-
+```{r}
 step <- 0.01
 
 beta_vec <- seq(from=0, to=0.5, by = step)
@@ -95,6 +94,9 @@ sir_params <- function(beta_params, gamma_params){
 
 }
 ####################################################################
+```
+
+```{r}
 library(ggplot2)
 temp_sir_params <-sir_params()
 
