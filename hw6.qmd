@@ -64,8 +64,8 @@ step <- 0.01
 beta_vec <- seq(from=0, to=0.5, by = step)
 gamma_vec <- seq(from=0, to=0.5, by=step)
 
-beta_parms = beta_output
-gamma_parms = gamma_output
+beta_parms = beta_vec
+gamma_parms = gamma_vec
 
 ###################################################################
 # start of function
@@ -76,16 +76,18 @@ sir_params <- function(beta_params, gamma_params){
   beta_output <- rep(NA, init_df)
   gamma_output <- rep(NA, init_df)
 
-  sir_df <- data.frame(beta_output, gamma_output, max_infected)
+  sir_df <- data.frame(beta_vec, gamma_vec, max_infected)
   counter <- 1
 
-  for (i in seq_along(beta_output)){
-    for (j in seq_along(gamma_output)){
-      temp_df <- run_sir_model(beta = beta_output[i], gamma = gamma_output[j])
+  for (i in seq_along(beta_vec)){
+    for (j in seq_along(gamma_vec)){
+      temp_df <- run_sir_model(beta = beta_vec[i], gamma = gamma_vec[j])
 
       sir_df$max_infected[counter] <- max(temp_df$I)
-      sir_df$beta_output[counter] <- beta_parms[i]
-      sir_df$gamma_output[counter] <- gamma_parms[j]
+      sir_df$beta_vec[counter] <- beta_parms[i]
+      sir_df$gamma_vec[counter] <- gamma_parms[j]
+
+      counter <- counter + 1
 
     }
 
@@ -102,7 +104,7 @@ temp_sir_params <-sir_params()
 
 heat_plot<- function(data= temp_sir_params){
   heatmap <- temp_sir_params
-  heatmap <- ggplot(data = temp_sir_parms, aes(x = beta_output, y = gamma_output, fill= max_infected)) + 
+  heatmap <- ggplot(data = temp_sir_params, aes(x = beta_vec, y = gamma_vec, fill= max_infected)) + 
     geom_tile() 
   return(heatmap)
 

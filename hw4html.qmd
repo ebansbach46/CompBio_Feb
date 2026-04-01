@@ -7,6 +7,7 @@ format: html
 E Bansbach
 
 Question 1
+Testing
 
 ```{r}
 n_dims <- sample(3:10, 1)
@@ -102,8 +103,8 @@ the data type of this vector has a double (my_matrix), character (my_logical), a
 need to create a df
 
 ```{r}
-column <- 
-row <-
+#column <- 
+#row <-
 
 df <- data.frame(ncol = 2, nrow = 26)
 print(df)
@@ -120,7 +121,7 @@ df <- data.frame(my_unis, my_letters, stringsAsFactors=FALSE)
 df
 df[sample(length(my_unis), size = 4, replace = FALSE), 1] <- NA
 
-which(!complete.cases(my_df$my_unis))
+which(!complete.cases(df$my_unis))
 
 df <- df[order(df$my_letters),]
 
