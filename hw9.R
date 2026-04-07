@@ -1,0 +1,81 @@
+# Homework 9
+# 3.18.26
+# E Bansbach
+
+```{r}
+library(ggplot2)
+library(ggthemes)
+library(patchwork)
+
+d <- mpg
+str(d)
+print(mpg)
+# manufacturer, model, displ, year, cyl, trans, dry, cty, hwy, fl, class
+print(mpg, n = 20)
+````
+
+# Question 1 
+
+```{r}
+d <- mpg
+print(mpg)
+View(d)
+
+ggplot(data = d) +
+  aes(x = cty, y = hwy) +
+  geom_point() +
+  geom_smooth() +
+  geom_smooth(method = "lm", col = "goldenrod") +
+  labs(
+    title = "City MPG vs Highway MPG",
+    x = "City MPG",
+    y = "Highway MPG"
+  ) 
+```
+I'm looking at 2 continuous variables (cty = city mpg and hwy = highway mpg)
+
+# Question 2 
+
+Discrrete x variable = drive train, continuous y variable = highway mpg
+```{r}
+ggplot(data=d) +
+  aes(x=drv, y=hwy) +
+  geom_jitter()+
+  geom_boxplot(fill="darksalmon")+
+  labs(
+    title = "Drive Train by Highway MPG",
+    x = "Drive Train",
+    y = "Highway MPG"
+  )
+```
+# Question 3
+
+Continuous x variable = displ (engine displacement), discrete y variable = drv (drive train)
+```{r}
+d_new <- d %>%
+  mutate(drv_m = case_when(drv == "f" ~ 0, TRUE ~ 1 ) ) %>%
+  select(drv_m, manufacturer, everything())
+
+ggplot(d_new, aes(x=displ, y=drv_m)) + 
+  geom_point(alpha=.5) +
+  geom_smooth(method = "glm", method.args = list(family = "binomial"))+
+  labs(
+    title = "Drive Train vs Engine Displacement",
+    x = "Drive Train",
+    y = "Engine Displacement"
+  )
+```
+# Question 4 
+
+Discrete x variable = manufacturer, discrete y variable = drive train
+
+```{r}
+ggplot(mpg, aes(x = manufacturer, fill = drv)) +
+  geom_bar() +
+  labs(
+    title = "Car Manufacturers by Drive Train",
+    x = "Car Manufacturer",
+    y = "Drive Train",
+    fill = "Drive Train"
+  ) 
+```
