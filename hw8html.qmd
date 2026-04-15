@@ -6,64 +6,96 @@ format: html
 # Homework 8
 # 3.4.26
 
+# For loops and randomizaton tests
+# null-no diff (h0)
+# H1 is diff
+
+# randomization tests lecture #21
+# use sample to shuffle
+# 'read in data' use as backbone
+
 ```{r}
 library(ggplot2)
 set.seed(1000)
 ```
-# Question 1
 
+
+# 1
 ```{r}
-zero_sum <- function(num_vec){
+times <- 100
+n_vec <- sample(0:2, 100, replace = TRUE)
+
+n_sum <- function(n_vec){
   counter <- 0
-
-  for (i in seq_along(num_vec)){
-    if (num_vec[i] == 0){
-      counter <- counter + 1
+  for (i in 1:times){
+    if(n_vec[i] == 0){
+      counter <- counter + 1 
     }
-
   }
-  return(counter)
+  return(counter) 
 }
 
-zero_vec <- sample(0:10, 100, replace = TRUE)
-num_zero <- zero_sum(zero_vec)
-print(num_zero)
+n_sum(n_vec)
 ```
 
-# Question 2
+
+# 2
 ```{r}
-sum_zero <- sum(zero_vec == 0)
+sum_zero <- sum(n_vec == 0)
 print(sum_zero)
 ```
 
-# Question 3 **********************************************
+# 3
 ```{r}
-row_col_mat <- function(x = 3, y = 4){
-  r_vec <- c(1:x)
-  c_vec <- c(1:y)
-  mat <- matrix(nrow = x, ncol = y) # changed n_row -> nrow
+mat_func <- function(row=6, col=3){
+  mat <- matrix(nrow=row, ncol = col)
+  for (i in 1:row){
+    for (j in 1:col) {
+      mat[i,j] <-j*i
   
-  
-  for (i in r_vec){
-    for (j in c_vec){
-      mat[i,j] <- r_vec[i] * c_vec[j]
     }
+  
   }
-  return(mat) 
-}
-print(row_col_mat())
+  return(mat)
+} 
+
+mat_func()
 ```
 
-# Question 4
+# 4
 # a
 ```{r}
-data1 <-rnorm(n = 3, mean = 10)
-data2 <-rnorm(n = 3, mean = 20)
-data3 <-rnorm(n = 3, mean = 30)
+group1 <- 2
+group2 <- 7
+group3 <- 10
 
-group <- c(rep(data1))
+groups <- c(rep("group1",2), rep("group2", 7), rep("group3", 10))
+print(groups)
 
-df <- data.frame(
-  
-)
+z <- c(runif(2) + 1, runif(7) + 6, + runif(10) + 14)
+print(z)
+
+df <- data.frame(grouping = groups, res=z)
+print(df)
+
+obs_means <- tapply(df$res,df$grouping,mean)
+print(obs_means)
+```
+
+# b
+```{r}
+shuffle <- function()
+
+read_data <- function(z=NULL) {
+
+  if(is.null(z)){
+    x_obs <- 1:20
+    y_obs <- x_obs + 10*rnorm(20)
+    df <- data.frame(x_obs, y_obs)
+  } 
+  else { 
+    df <-read.table(file=z, header=TRUE, sep=",")}
+
+return(df)
+}
 ```

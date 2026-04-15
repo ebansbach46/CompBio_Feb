@@ -1,4 +1,5 @@
 # Homework 8
+######### OLD CODE
 # 3.4.26
 
 library(ggplot2)
@@ -29,7 +30,7 @@ print(sum_zero)
 row_col_mat <- function(x = 3, y = 4){
   r_vec <- c(1:x)
   c_vec <- c(1:y)
-  mat <- matrix(n_row = x, n_col = y)
+  mat <- matrix(row = x, col = y)
   
   
   for (i in r_vec){
