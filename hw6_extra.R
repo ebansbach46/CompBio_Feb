@@ -1,0 +1,103 @@
+# Homework 6
+### E Bansbach
+### 2.18.26
+
+library(deSolve)
+
+############################################################
+# FUNCTION: run_sir_model
+# PURPOSE: Solve deterministic SIR model with deSolve
+# INPUTS:
+#   beta, gamma : transmission & recovery rates
+#   N           : total population
+#   S0, I0, R0  : initial conditions
+#   t_start     : start time
+#   t_end       : end time
+#   dt          : timestep
+# OUTPUT:
+#   data.frame with columns: time, S, I, R
+############################################################
+
+run_sir_model <- function(
+  beta    = 0.1,
+  gamma   = 0.1,
+  N       = 1000,
+  S0      = 999,
+  I0      = 1,
+  R0      = 0,
+  t_start = 0,
+  t_end   = 160,
+  dt      = 1
+) {
+
+  init  <- c(S = S0, I = I0, R = R0)
+  times <- seq(t_start, t_end, by = dt)
+
+  sir_equations <- function(time, state, parameters) {
+    with(as.list(c(state, parameters)), {
+      dS <- -beta * S * I / N
+      dI <-  beta * S * I / N - gamma * I
+      dR <-  gamma * I
+      list(c(dS, dI, dR))
+    })
+  }
+
+  out <- ode(
+    y     = init,
+    times = times,
+    func  = sir_equations,
+    parms = c(beta = beta, gamma = gamma, N = N)
+  )
+
+  as.data.frame(out)
+}
+
+####################################################################
+
+step <- 0.01
+
+beta_vec <- seq(from=0, to=0.5, by = step)
+gamma_vec <- seq(from=0, to=0.5, by=step)
+
+beta_parms = beta_output
+gamma_parms = gamma_output
+
+###################################################################
+# start of function
+sir_params <- function(beta_params, gamma_params){
+  init_df <- length(beta_vec)*length(gamma_vec)
+
+  max_infected <- rep(NA, init_df)
+  beta_output <- rep(NA, init_df)
+  gamma_output <- rep(NA, init_df)
+
+  sir_df <- data.frame(beta_output, gamma_output, max_infected)
+  counter <- 1
+
+  for (i in seq_along(beta_output)){
+    for (j in seq_along(gamma_output)){
+      temp_df <- run_sir_model(beta = beta_output[i], gamma = gamma_output[j])
+
+      sir_df$max_infected[counter] <- max(temp_df$I)
+      sir_df$beta_output[counter] <- beta_parms[i]
+      sir_df$gamma_output[counter] <- gamma_parms[j]
+
+    }
+
+  }
+  return(sir_df)
+
+}
+####################################################################
+library(ggplot2)
+temp_sir_params <-sir_params()
+
+heat_plot<- function(data= temp_sir_params){
+  heatmap <- temp_sir_params
+  heatmap <- ggplot(data = temp_sir_parms, aes(x = beta_output, y = gamma_output, fill= max_infected)) + 
+    geom_tile() 
+  return(heatmap)
+
+}
+
+heat_plot()  

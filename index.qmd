@@ -2,8 +2,6 @@
 title: "CompBio_Feb"
 ---
 
-This is a Quarto website.
-
 
 [Homework 3](Homework_3.html)
 ---------------------
@@ -16,3 +14,17 @@ This is a Quarto website.
 
 [Homework 6](hw6.html)
 -------------------------------
+
+[Homework 7](hw7html.html)
+-------------------------------
+
+[Homework 8](hw8hmtl.html)
+-------------------------------
+
+[Homework 9](hw9html2.0.html)
+-------------------------------
+
+[Homework 10](hw10html.html)
+-------------------------------
+
+[Homework 11](hw11html)

@@ -16,9 +16,9 @@ set.seed(1000)
 # 1)
 times <- 100
 n_vec <- sample(0:2, 100, replace = TRUE)
-counter <- 0
 
 n_sum <- function(n_vec){
+  counter <- 0
   for (i in 1:times){
     if(n_vec[i] == 0){
       counter <- counter + 1 
@@ -30,39 +30,14 @@ n_sum <- function(n_vec){
 n_sum(n_vec)
 
 # 2)
-#sub_vec <- n_sum
-for (i in n_vec(n_sum)){
-  n_sum[i, ] <- n_sum[i, ] + i
-
-}
-
-n_sum <- function(n_vec){
-  for (i in n_vec(n_sum)){
-  n_sum[i, ] <- n_sum[i, ] + i
-
-}
-return(n_sum)
-}
-##############
-for (i in n_sum(n_vec)){
-  n_vec[i, ] <- n_vec[i, ] + i
-
-}
-###
-for (i in 1:times){
-  n_vec[i, ] <- n_vec[i, ] + i
-
-
-}
+sum_zero <- sum(n_vec == 0)
+print(sum_zero)
 
 # 3)
-row = 2
-col = 3
-
-mat_func <- function(nrow=2, ncol=3){
-  mat <- matrix(nrow=nrow, ncol = ncol)
-  for (i in 1:nrow){
-    for (j in 1:ncol) {
+mat_func <- function(row=6, col=3){
+  mat <- matrix(nrow=row, ncol = col)
+  for (i in 1:row){
+    for (j in 1:col) {
       mat[i,j] <-j*i
   
     }
@@ -71,10 +46,7 @@ mat_func <- function(nrow=2, ncol=3){
   return(mat)
 } 
 
-mat_func(10,6)
-
-#print(mat_func) 
-#print(mat)
+mat_func()
 
 # 4)
 library(ggplot2)
@@ -85,7 +57,20 @@ group2 <- 7
 group3 <- 10
 
 groups <- c(rep("group1",2), rep("group2", 7), rep("group3", 10))
+print(groups)
 
+z <- c(runif(2) + 1, runif(7) + 6, + runif(10) + 14)
+print(z)
+
+df <- data.frame(grouping = groups, res=z)
+print(df)
+
+obs_means <- tapply(df$res,df$grouping,mean)
+print(obs_means)
+
+# b)
+
+shuffle <- function()
 
 ####### idk: the 'read me'
 read_data <- function(z=NULL) {

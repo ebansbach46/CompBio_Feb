@@ -49,7 +49,7 @@ fig = px.choropleth(
     locations="iso_alpha",
     color="gdpPercap",
     hover_name="country",
-    hover_data={
+    hover_data={   # the {} indicate a dictionary
         "lifeExp": ":.1f",
         "pop": ":,",
         "gdpPercap": ":,.0f",
@@ -161,3 +161,108 @@ fig = px.choropleth_map(
 )
 fig.show()
 
+####################################################
+#4.9.26
+
+# density heat maps
+# how to find path of an image or dataset in the console/terminal of laptop
+
+eq = pd.read_csv(
+    "https://raw.githubusercontent.com/plotly/datasets/master/earthquakes-23k.csv"
+)
+eq.head()
+
+# 3D map, so z is the name of the variable that were measuring here
+
+fig = px.density_map(
+    eq,
+    lat = "Latitude",
+    lon = "Longitude",
+    z = "Magnitude",
+    radius = 5,
+    zoom = 0,
+    center={"lat": 0, "lon": 180},
+    map_style = "open-street-map",
+    title = "Global Earthquake Density"
+)
+fig.show()
+
+# increase radius 
+fig = px.density_map(
+    eq,
+    lat = "Latitude",
+    lon = "Longitude",
+    z = "Magnitude",
+    radius = 10,
+    zoom = 0,
+    center={"lat": 0, "lon": 180},
+    map_style = "open-street-map",
+    title = "Global Earthquake Density"
+)
+fig.show()
+# bigger value for radius is better for when your zooming in on a location/map
+
+# changing opacity 
+fig.update_traces(opacity = 0.7)
+fig.show()
+
+# focusing in on a region, using query()
+pacific = eq.query("Latitude > -60 and Latitude < 60 and Longitude > 100")
+
+fig = px.density_map(
+    pacific,
+    lat = "Latitude",
+    lon = "Longitude",
+    z = "Magnitude",
+    radius = 12,
+    zoom = 2,  # zoom values only 1-7
+    center={"lat": 0, "lon": 160},
+    map_style = "carto-darkmatter",
+    title = "Pacific Earthquake Density"
+)
+fig.show()
+
+# can do a heatmap with any continuus variable, and with lat and long values
+
+
+# bubble map
+gap
+
+fig = px.scatter_geo(
+    gap,
+    locations = "iso_alpha",
+    color = "continent",  # maps the continents colors
+    hover_name = "country",
+    size = "pop",
+    projection = "natural earth"
+)
+fig.show()
+
+
+# animation
+
+df = px.data.gapminder()
+
+fig = px.scatter_geo(
+    df,
+    locations = "iso_alpha",
+    color = "continent",  # maps the continents colors
+    hover_name = "country",
+    size = "pop",
+    animation_frame = "year",
+    projection = "natural earth"
+)
+fig.show()
+
+
+# go to terminal: conda install dash
+# from dash, import:
+from dash import Dash, dcc, html
+
+app = Dash()
+
+app.layout = html.Div({
+    dcc.Graph(figure=fig)  # fig = the handle we just created
+})
+
+app.run(debug = True, use_reloader = False)

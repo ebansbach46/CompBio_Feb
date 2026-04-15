@@ -10,6 +10,7 @@ format: html
 library(ggplot2)
 library(ggthemes)
 library(patchwork)
+library(tidyverse)
 
 d <- mpg
 str(d)
@@ -36,6 +37,7 @@ ggplot(data = d) +
     y = "Highway MPG"
   ) 
 ```
+
 I'm looking at 2 continuous variables (cty = city mpg and hwy = highway mpg)
 
 # Question 2 
@@ -69,6 +71,7 @@ ggplot(d_new, aes(x=displ, y=drv_m)) +
     y = "Engine Displacement"
   )
 ```
+
 # Question 4 
 
 Discrete x variable = manufacturer, discrete y variable = drive train
