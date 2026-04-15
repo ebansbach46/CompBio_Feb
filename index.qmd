@@ -18,7 +18,7 @@ title: "CompBio_Feb"
 [Homework 7](hw7html.html)
 -------------------------------
 
-[Homework 8](hw8hmtl.html)
+[Homework 8](hw8html.html)
 -------------------------------
 
 [Homework 9](hw9html2.0.html)
@@ -27,4 +27,3 @@ title: "CompBio_Feb"
 [Homework 10](hw10html.html)
 -------------------------------
 
-[Homework 11](hw11html)
