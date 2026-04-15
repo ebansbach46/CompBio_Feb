@@ -27,3 +27,6 @@ title: "CompBio_Feb"
 [Homework 10](hw10html.html)
 -------------------------------
 
+## Link to Homework 11 in repo:
+https://github.com/ebansbach46/CA_SIR_6100.git
+
