@@ -4,7 +4,7 @@ format: html
 ---
 
 # 3.18.26
-# E Bansbach
+
 
 ```{r}
 library(ggplot2)

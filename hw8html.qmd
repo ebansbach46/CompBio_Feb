@@ -3,16 +3,9 @@ title: "Homework 8"
 format: html
 ---
 
-# Homework 8
 # 3.4.26
 
-# For loops and randomizaton tests
-# null-no diff (h0)
-# H1 is diff
-
-# randomization tests lecture #21
-# use sample to shuffle
-# 'read in data' use as backbone
+For loops and randomizaton tests
 
 ```{r}
 library(ggplot2)
@@ -20,7 +13,7 @@ set.seed(1000)
 ```
 
 
-# 1
+# Question 1
 ```{r}
 times <- 100
 n_vec <- sample(0:2, 100, replace = TRUE)
@@ -39,13 +32,13 @@ n_sum(n_vec)
 ```
 
 
-# 2
+# Question 2
 ```{r}
 sum_zero <- sum(n_vec == 0)
 print(sum_zero)
 ```
 
-# 3
+# Question 3
 ```{r}
 mat_func <- function(row=6, col=3){
   mat <- matrix(nrow=row, ncol = col)
@@ -62,8 +55,8 @@ mat_func <- function(row=6, col=3){
 mat_func()
 ```
 
-# 4
-# a
+# Question 4
+a
 ```{r}
 group1 <- 2
 group2 <- 7
@@ -82,7 +75,7 @@ obs_means <- tapply(df$res,df$grouping,mean)
 print(obs_means)
 ```
 
-# b
+b
 ```{r}
 shuffle <- function()
 
