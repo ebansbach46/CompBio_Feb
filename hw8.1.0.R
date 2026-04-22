@@ -65,23 +65,65 @@ print(z)
 df <- data.frame(grouping = groups, res=z)
 print(df)
 
-obs_means <- tapply(df$res,df$grouping,mean)
+obs_means <- tapply(df$res,df$grouping,mean)###
 print(obs_means)
 
 # b)
+library(dplyr)
+shuffler <- function(df){
+  reshuff <- sample(df$res)
+  df2 <- data.frame(
+    groups = df$grouping,
+    response = reshuff
+  )
+  summary <- df2 |>
+    group_by(groups) |>
+    summarize(meanResponse = mean(response))
 
-shuffle <- function()
-
-####### idk: the 'read me'
-read_data <- function(z=NULL) {
-
-  if(is.null(z)){
-    x_obs <- 1:20
-    y_obs <- x_obs + 10*rnorm(20)
-    df <- data.frame(x_obs, y_obs)
-  } 
-  else { 
-    df <-read.table(file=z, header=TRUE, sep=",")}
-
-return(df)
+  return(summary$meanResponse)
 }
+shuffler(df)
+
+# c)
+n_run <- 100
+df2 <- data.frame(
+  rep = 1:n_run,
+  group1mean = NA,
+  group2mean = NA,
+  group3mean = NA
+
+)
+
+for (i in 1:n_run){
+  group_means_rep <- shuffler(df)
+  df2$group1mean[i] = group_means_rep[1]
+  df2$group2mean[i] = group_means_rep[2]
+  df2$group3mean[i] = group_means_rep[3]
+
+}
+
+g1 <- data.frame(mean = df2$group1mean)   
+g2 <- data.frame(mean = df2$group2mean)
+g3 <- data.frame(mean = df2$group3mean)
+
+# d
+g1 <- ggplot(data = df2, aes(x = group1mean)) +
+  geom_histogram(bins = 20, fill = "cornflowerblue", color = "black") +
+  labs(title = "Group 1 Reshuffled Means",
+       x = "Mean values",
+       y = "Count")
+print(g1)
+
+g2 <- ggplot(data = df2, aes(x = group2mean)) +
+  geom_histogram(bins = 20, fill = "darksalmon", color = "black") +
+  labs(title = "Group 2 Reshuffled Means",
+       x = "Mean values",
+       y = "Count")
+print(g2)
+
+g3 <- ggplot(data = df2, aes(x = group3mean)) +
+  geom_histogram(bins = 20, fill = "darkolivegreen3", color = "black") +
+  labs(title = "Group 3 Reshuffled Means",
+       x = "Mean values",
+       y = "Count")
+print(g3)
