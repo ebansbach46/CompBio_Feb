@@ -250,5 +250,194 @@
     "title": "Homework 10",
     "section": "",
     "text": "import numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\n# Question 1\n\nmyList = [\"summer\", \"winter\", 3, 5, [6,7,8]]\nprint(myList)\n\n# 1\nthird_element = myList[2]\nprint(third_element)\n\n# 2\nlistWithinList = myList[4][2]\nprint(listWithinList)\n\n# 3\nmyList.append(True)\nprint(myList)\n\n['summer', 'winter', 3, 5, [6, 7, 8]]\n3\n8\n['summer', 'winter', 3, 5, [6, 7, 8], True]\n\n\n.append adds a data type (character string, integer, bolean variables, etc) onto the end of a list\n\nmyList.remove([6,7,8])\nprint(myList)\n\n['summer', 'winter', 3, 5, True]\n\n\n.remove removes a data type from a list. You explicitly indicate the item you want removed from the list"
+  },
+  {
+    "objectID": "hw12_final.html",
+    "href": "hw12_final.html",
+    "title": "Homework 12",
+    "section": "",
+    "text": "from math import exp\nimport json\nimport pandas as pd\nimport plotly.express as px\nimport plotly.graph_objects as go\n\ngap = px.data.gapminder().query(\"year==1972\")\n\neurope = gap.query(\"continent == 'Europe'\") #new\n\nfig = px.choropleth(\n    europe,\n    locations = \"iso_alpha\",\n    color = \"gdpPercap\",\n    hover_name = \"country\",\n    hover_data = {\n        \"gdpPercap\": \":,.0f\",\n        \"pop\": \":,\",\n        \"iso_alpha\": False\n    },\n    color_continuous_scale = \"Viridis\",\n    title = \"GDP By Country in Europe (1972)\" \n)\n\nfig.update_geos(\n    scope = \"europe\",\n    showland = True,\n    landcolor = \"rgb(240,240,240)\"\n)   \n\nfig.show()\n\n                            \n                                            \n\n\n\n\n\nfig = px.choropleth(\n    europe,\n    locations = \"iso_alpha\",\n    color = \"gdpPercap\",\n    hover_name = \"country\",\n    hover_data = {\n        \"gdpPercap\": \":,.0f\",\n        \"pop\": \":,\",\n        \"iso_alpha\": False\n    },\n    color_continuous_scale = \"Viridis\",\n    range_color = (0, 5000),\n    title = \"GDP By Country in Europe (1972)\" \n)\n\nfig.update_geos(\n    scope = \"europe\",\n    showland = True,\n    landcolor = \"rgb(240,240,240)\"\n)   \nfig.show()"
+  },
+  {
+    "objectID": "hw12_final.html#something-new",
+    "href": "hw12_final.html#something-new",
+    "title": "Homework 12",
+    "section": "",
+    "text": "fig = px.choropleth(\n    europe,\n    locations = \"iso_alpha\",\n    color = \"gdpPercap\",\n    hover_name = \"country\",\n    hover_data = {\n        \"gdpPercap\": \":,.0f\",\n        \"pop\": \":,\",\n        \"iso_alpha\": False\n    },\n    color_continuous_scale = \"Viridis\",\n    range_color = (0, 5000),\n    title = \"GDP By Country in Europe (1972)\" \n)\n\nfig.update_geos(\n    scope = \"europe\",\n    showland = True,\n    landcolor = \"rgb(240,240,240)\"\n)   \nfig.show()"
+  },
+  {
+    "objectID": "hw12_final.html#something-new-1",
+    "href": "hw12_final.html#something-new-1",
+    "title": "Homework 12",
+    "section": "something new",
+    "text": "something new\n\nfig2.update_traces(opacity=0.5)\nfig2.show()"
+  },
+  {
+    "objectID": "hw12_final.html#the-new-argument-i-used-was-update_traces-to-change-the-opacity-of-the-map-colors",
+    "href": "hw12_final.html#the-new-argument-i-used-was-update_traces-to-change-the-opacity-of-the-map-colors",
+    "title": "Homework 12",
+    "section": "The new argument I used was update_traces to change the opacity of the map colors",
+    "text": "The new argument I used was update_traces to change the opacity of the map colors"
+  },
+  {
+    "objectID": "hw12_final.html#it-changed-the-map-by-making-the-colors-of-the-bubbles-on-the-map-less-opaque",
+    "href": "hw12_final.html#it-changed-the-map-by-making-the-colors-of-the-bubbles-on-the-map-less-opaque",
+    "title": "Homework 12",
+    "section": "It changed the map by making the colors of the bubbles on the map less opaque",
+    "text": "It changed the map by making the colors of the bubbles on the map less opaque"
+  },
+  {
+    "objectID": "index.html#homework-12",
+    "href": "index.html#homework-12",
+    "title": "CompBio_Feb",
+    "section": "Homework 12",
+    "text": "Homework 12"
+  },
+  {
+    "objectID": "index.html#homework-13",
+    "href": "index.html#homework-13",
+    "title": "CompBio_Feb",
+    "section": "Homework 13",
+    "text": "Homework 13"
+  },
+  {
+    "objectID": "index.html#homework-14",
+    "href": "index.html#homework-14",
+    "title": "CompBio_Feb",
+    "section": "Homework 14",
+    "text": "Homework 14"
+  },
+  {
+    "objectID": "hw14qmd.html",
+    "href": "hw14qmd.html",
+    "title": "Homework 14",
+    "section": "",
+    "text": "library(tidyverse)\n\nWarning: package 'ggplot2' was built under R version 4.4.3\n\n\nWarning: package 'dplyr' was built under R version 4.4.3\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.2.0     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   4.0.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(ggplot2)\nlibrary(psych)        \n\nWarning: package 'psych' was built under R version 4.4.3\n\n\n\nAttaching package: 'psych'\n\nThe following objects are masked from 'package:ggplot2':\n\n    %+%, alpha\n\nlibrary(randomForest)\n\nWarning: package 'randomForest' was built under R version 4.4.3\n\n\nrandomForest 4.7-1.2\nType rfNews() to see new features/changes/bug fixes.\n\nAttaching package: 'randomForest'\n\nThe following object is masked from 'package:psych':\n\n    outlier\n\nThe following object is masked from 'package:dplyr':\n\n    combine\n\nThe following object is masked from 'package:ggplot2':\n\n    margin\n\nset.seed(1)\n\nbee_data &lt;- read_csv(\"Burnham_field_data_pathogens_wide.csv\")\n\nRows: 298 Columns: 14\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (5): sampling_date, site_code, bombus_spp, host_plant, bee_caste\ndbl (9): id, field_id, sampling_event, BQCV_pathogen_binary, DWV_pathogen_bi...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nhead(bee_data)\n\n# A tibble: 6 × 14\n     id sampling_date site_code field_id bombus_spp host_plant  bee_caste\n  &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;    \n1     1 9/9/20        BOST             6 impatiens  solidago    worker   \n2     3 9/10/20       MUDGE           18 impatiens  crown vetch worker   \n3     4 9/10/20       MUDGE           11 impatiens  crown vetch worker   \n4     5 9/9/20        BOST            11 impatiens  solidago    male     \n5     6 9/10/20       CIND            14 impatiens  knot weed   worker   \n6     8 9/10/20       MUDGE            4 impatiens  crown vetch worker   \n# ℹ 7 more variables: sampling_event &lt;dbl&gt;, BQCV_pathogen_binary &lt;dbl&gt;,\n#   DWV_pathogen_binary &lt;dbl&gt;, Nosema_pathogen_binary &lt;dbl&gt;,\n#   BQCV_pathogen_load &lt;dbl&gt;, DWV_pathogen_load &lt;dbl&gt;,\n#   Nosema_pathogen_load &lt;dbl&gt;\n\ndata(mpg)\nhead(mpg)\n\n# A tibble: 6 × 11\n  manufacturer model displ  year   cyl trans      drv     cty   hwy fl    class \n  &lt;chr&gt;        &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;      &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; \n1 audi         a4      1.8  1999     4 auto(l5)   f        18    29 p     compa…\n2 audi         a4      1.8  1999     4 manual(m5) f        21    29 p     compa…\n3 audi         a4      2    2008     4 manual(m6) f        20    31 p     compa…\n4 audi         a4      2    2008     4 auto(av)   f        21    30 p     compa…\n5 audi         a4      2.8  1999     6 auto(l5)   f        16    26 p     compa…\n6 audi         a4      2.8  1999     6 manual(m5) f        18    26 p     compa…\n\nstr(mpg)\n\ntibble [234 × 11] (S3: tbl_df/tbl/data.frame)\n $ manufacturer: chr [1:234] \"audi\" \"audi\" \"audi\" \"audi\" ...\n $ model       : chr [1:234] \"a4\" \"a4\" \"a4\" \"a4\" ...\n $ displ       : num [1:234] 1.8 1.8 2 2 2.8 2.8 3.1 1.8 1.8 2 ...\n $ year        : int [1:234] 1999 1999 2008 2008 1999 1999 2008 1999 1999 2008 ...\n $ cyl         : int [1:234] 4 4 4 4 6 6 6 4 4 4 ...\n $ trans       : chr [1:234] \"auto(l5)\" \"manual(m5)\" \"manual(m6)\" \"auto(av)\" ...\n $ drv         : chr [1:234] \"f\" \"f\" \"f\" \"f\" ...\n $ cty         : int [1:234] 18 21 20 21 16 18 18 18 16 20 ...\n $ hwy         : int [1:234] 29 29 31 30 26 26 27 26 25 28 ...\n $ fl          : chr [1:234] \"p\" \"p\" \"p\" \"p\" ...\n $ class       : chr [1:234] \"compact\" \"compact\" \"compact\" \"compact\" ..."
+  },
+  {
+    "objectID": "hw14qmd.html#there-is-some-variation-in-separation-along-the-x-axis-pc1-but-for-the-y-axis-pc2-there-is-not-much-separation-occuring",
+    "href": "hw14qmd.html#there-is-some-variation-in-separation-along-the-x-axis-pc1-but-for-the-y-axis-pc2-there-is-not-much-separation-occuring",
+    "title": "Homework 14",
+    "section": "There is some variation in separation along the x-axis (PC1), but for the y-axis (PC2) there is not much separation occuring",
+    "text": "There is some variation in separation along the x-axis (PC1), but for the y-axis (PC2) there is not much separation occuring\n\npca_plot2 &lt;- plot(eig, type = \"b\", pch = 19,\n  xlab = \"Principal component\",\n  ylab = \"Eigenvalue\",\n  main = \"Scree plot (MPG PCA)\")\n\n\n\n\n\n\n\nbroken_stick &lt;- function(p) sapply(1:p, function(k) sum(1/(k:p)) / p)\nbs &lt;- broken_stick(ncol(mpg_num))\nretain &lt;- data.frame(\n  PC = paste0(\"PC\", 1:length(pve)),\n  ObservedPVE = round(pve, 3),\n  BrokenStick = round(bs, 3),\n  Keep = pve &gt; bs\n)\nretain\n\n   PC ObservedPVE BrokenStick  Keep\n1 PC1       0.704       0.457  TRUE\n2 PC2       0.203       0.257 FALSE\n3 PC3       0.071       0.157 FALSE\n4 PC4       0.014       0.090 FALSE\n5 PC5       0.008       0.040 FALSE"
+  },
+  {
+    "objectID": "hw14qmd.html#one-pc-is-needed",
+    "href": "hw14qmd.html#one-pc-is-needed",
+    "title": "Homework 14",
+    "section": "One PC is needed",
+    "text": "One PC is needed"
+  },
+  {
+    "objectID": "hw14qmd.html#due-to-the-steep-difference-in-values-on-the-scree-plot-for-pc1-and-pc2-and-smaller-eigen-values-for-other-pcs-the-variance-was-explained-by-both-of-the-pcs",
+    "href": "hw14qmd.html#due-to-the-steep-difference-in-values-on-the-scree-plot-for-pc1-and-pc2-and-smaller-eigen-values-for-other-pcs-the-variance-was-explained-by-both-of-the-pcs",
+    "title": "Homework 14",
+    "section": "Due to the steep difference in values on the scree plot for PC1 and PC2, and smaller eigen values for other PCs, the variance was explained by both of the PCs",
+    "text": "Due to the steep difference in values on the scree plot for PC1 and PC2, and smaller eigen values for other PCs, the variance was explained by both of the PCs"
+  },
+  {
+    "objectID": "hw14qmd.html#the-bartletts-test-had-a-p-value-of-2.044721e-272-which-is-statistically-significant-showing-there-is-a-difference-between-groups",
+    "href": "hw14qmd.html#the-bartletts-test-had-a-p-value-of-2.044721e-272-which-is-statistically-significant-showing-there-is-a-difference-between-groups",
+    "title": "Homework 14",
+    "section": "The bartletts test had a p-value of 2.044721e-272, which is statistically significant, showing there is a difference between groups",
+    "text": "The bartletts test had a p-value of 2.044721e-272, which is statistically significant, showing there is a difference between groups\n\npca$rotation\n\n              PC1         PC2        PC3         PC4         PC5\ndispl  0.49818034 -0.07540283  0.4897111  0.70386376 -0.10435326\nyear   0.06047629 -0.98055060 -0.1846807 -0.01604536  0.02233245\ncyl    0.49820578 -0.04868461  0.5028416 -0.68062021  0.18255766\ncty   -0.50575849 -0.09911736  0.4348234  0.15195854  0.72264881\nhwy   -0.49412379 -0.14366800  0.5330619 -0.13410105 -0.65807527"
+  },
+  {
+    "objectID": "hw14qmd.html#the-variables-contributing-the-most-to-pc1-are-displ-cyl-cty-and-hwy",
+    "href": "hw14qmd.html#the-variables-contributing-the-most-to-pc1-are-displ-cyl-cty-and-hwy",
+    "title": "Homework 14",
+    "section": "The variables contributing the most to PC1 are displ, cyl, cty, and hwy",
+    "text": "The variables contributing the most to PC1 are displ, cyl, cty, and hwy"
+  },
+  {
+    "objectID": "hw14qmd.html#the-variable-contributing-the-most-to-pc2-is-year",
+    "href": "hw14qmd.html#the-variable-contributing-the-most-to-pc2-is-year",
+    "title": "Homework 14",
+    "section": "The variable contributing the most to PC2 is year",
+    "text": "The variable contributing the most to PC2 is year"
+  },
+  {
+    "objectID": "hw14qmd.html#oob-estimate-of-error-rate-24.54",
+    "href": "hw14qmd.html#oob-estimate-of-error-rate-24.54",
+    "title": "Homework 14",
+    "section": "OOB estimate of error rate = 24.54%",
+    "text": "OOB estimate of error rate = 24.54%"
+  },
+  {
+    "objectID": "hw14qmd.html#based-on-my-confusion-matrix-it-was-somewhat-accurate-at-classifying-some-car-manufacturers-were-classified-very-accurately-while-others-were-less-accurate",
+    "href": "hw14qmd.html#based-on-my-confusion-matrix-it-was-somewhat-accurate-at-classifying-some-car-manufacturers-were-classified-very-accurately-while-others-were-less-accurate",
+    "title": "Homework 14",
+    "section": "Based on my confusion matrix, it was somewhat accurate at classifying, some car manufacturers were classified very accurately while others were less accurate",
+    "text": "Based on my confusion matrix, it was somewhat accurate at classifying, some car manufacturers were classified very accurately while others were less accurate"
+  },
+  {
+    "objectID": "hw14qmd.html#the-more-abundant-a-car-manufacturer-it-generally-was-more-accurate-when-classified-and-vice-versa",
+    "href": "hw14qmd.html#the-more-abundant-a-car-manufacturer-it-generally-was-more-accurate-when-classified-and-vice-versa",
+    "title": "Homework 14",
+    "section": "The more abundant a car manufacturer it generally was more accurate when classified, and vice versa",
+    "text": "The more abundant a car manufacturer it generally was more accurate when classified, and vice versa"
+  },
+  {
+    "objectID": "hw14qmd.html#variables-the-most-important-based-on",
+    "href": "hw14qmd.html#variables-the-most-important-based-on",
+    "title": "Homework 14",
+    "section": "Variables the most important based on:",
+    "text": "Variables the most important based on:"
+  },
+  {
+    "objectID": "hw14qmd.html#mean-decrease-accuracy-model-was-the-greatest-value-then-displ-drv-cty-then-class.",
+    "href": "hw14qmd.html#mean-decrease-accuracy-model-was-the-greatest-value-then-displ-drv-cty-then-class.",
+    "title": "Homework 14",
+    "section": "Mean Decrease Accuracy: model was the greatest value, then displ, drv, cty, then class.",
+    "text": "Mean Decrease Accuracy: model was the greatest value, then displ, drv, cty, then class."
+  },
+  {
+    "objectID": "hw14qmd.html#mean-decrease-gini-model-had-the-greatest-value-then-displ-class-cty-and-highway.",
+    "href": "hw14qmd.html#mean-decrease-gini-model-had-the-greatest-value-then-displ-class-cty-and-highway.",
+    "title": "Homework 14",
+    "section": "Mean Decrease Gini: model had the greatest value, then displ, class, cty, and highway.",
+    "text": "Mean Decrease Gini: model had the greatest value, then displ, class, cty, and highway."
+  },
+  {
+    "objectID": "hw14qmd.html#my-two-models-agreed-a-little-bit-on-variable-importance.-year-was-the-most-important-with-the-pcas-but-was-only-minorly-important-for-random-forest.",
+    "href": "hw14qmd.html#my-two-models-agreed-a-little-bit-on-variable-importance.-year-was-the-most-important-with-the-pcas-but-was-only-minorly-important-for-random-forest.",
+    "title": "Homework 14",
+    "section": "My two models agreed a little bit on variable importance. Year was the most important with the PCAs but was only minorly important for random forest.",
+    "text": "My two models agreed a little bit on variable importance. Year was the most important with the PCAs but was only minorly important for random forest."
+  },
+  {
+    "objectID": "hw14qmd.html#model-displ-class-and-fl-were-the-most-important-variables-for-random-forest-while-displ-cyl-cty-hwy-and-year-were-the-most-importat-for-the-pcas",
+    "href": "hw14qmd.html#model-displ-class-and-fl-were-the-most-important-variables-for-random-forest-while-displ-cyl-cty-hwy-and-year-were-the-most-importat-for-the-pcas",
+    "title": "Homework 14",
+    "section": "model, displ, class, and fl were the most important variables for random forest, while displ, cyl, cty, hwy, and year were the most importat for the PCAs",
+    "text": "model, displ, class, and fl were the most important variables for random forest, while displ, cyl, cty, hwy, and year were the most importat for the PCAs"
+  },
+  {
+    "objectID": "hw14qmd.html#the-random-forest-broke-down-the-data-more-specifically-for-each-car-manufacturer-providing-more-data-for-each-manufacturer",
+    "href": "hw14qmd.html#the-random-forest-broke-down-the-data-more-specifically-for-each-car-manufacturer-providing-more-data-for-each-manufacturer",
+    "title": "Homework 14",
+    "section": "The random forest broke down the data more specifically for each car manufacturer, providing more data for each manufacturer,",
+    "text": "The random forest broke down the data more specifically for each car manufacturer, providing more data for each manufacturer,"
+  },
+  {
+    "objectID": "hw14qmd.html#while-the-pca-test-only-provided-data-for-some-of-the-variables-for-each-pca-test-which-seemed-to-get-at-more-of-an-overview-for-each-manufacturere",
+    "href": "hw14qmd.html#while-the-pca-test-only-provided-data-for-some-of-the-variables-for-each-pca-test-which-seemed-to-get-at-more-of-an-overview-for-each-manufacturere",
+    "title": "Homework 14",
+    "section": "while the PCA test only provided data for some of the variables for each PCA test, which seemed to get at more of an overview for each manufacturere,",
+    "text": "while the PCA test only provided data for some of the variables for each PCA test, which seemed to get at more of an overview for each manufacturere,"
+  },
+  {
+    "objectID": "hw14qmd.html#while-you-could-see-much-more-variance-in-the-data-for-many-variables-for-each-manufacturer-with-random-forest",
+    "href": "hw14qmd.html#while-you-could-see-much-more-variance-in-the-data-for-many-variables-for-each-manufacturer-with-random-forest",
+    "title": "Homework 14",
+    "section": "while you could see much more variance in the data for many variables for each manufacturer with random forest",
+    "text": "while you could see much more variance in the data for many variables for each manufacturer with random forest"
+  },
+  {
+    "objectID": "hw13.html",
+    "href": "hw13.html",
+    "title": "Homework 13",
+    "section": "",
+    "text": "4.15.26\n\nlibrary(tidyverse)\n\nWarning: package 'ggplot2' was built under R version 4.4.3\n\n\nWarning: package 'dplyr' was built under R version 4.4.3\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.2.0     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   4.0.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(lubridate)\nlibrary(lme4)\n\nWarning: package 'lme4' was built under R version 4.4.3\n\n\nLoading required package: Matrix\n\nAttaching package: 'Matrix'\n\nThe following objects are masked from 'package:tidyr':\n\n    expand, pack, unpack\n\nlibrary(car)\n\nWarning: package 'car' was built under R version 4.4.3\n\n\nLoading required package: carData\n\n\nWarning: package 'carData' was built under R version 4.4.3\n\n\nRegistered S3 method overwritten by 'car':\n  method           from\n  na.action.merMod lme4\n\nAttaching package: 'car'\n\nThe following object is masked from 'package:dplyr':\n\n    recode\n\nThe following object is masked from 'package:purrr':\n\n    some\n\nlibrary(ggplot2)\n\nbee_dat &lt;- read_csv(\"Burnham_field_data_pathogens_wide.csv\")\n\nRows: 298 Columns: 14\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (5): sampling_date, site_code, bombus_spp, host_plant, bee_caste\ndbl (9): id, field_id, sampling_event, BQCV_pathogen_binary, DWV_pathogen_bi...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nbee_dat &lt;- bee_dat %&gt;%\n  mutate(\n    sampling_date = mdy(sampling_date),\n    site_code = factor(site_code),\n    field_id = factor(field_id),\n    bee_caste = factor(bee_caste),\n    bombus_spp = factor(bombus_spp),\n    host_plant = factor(host_plant),\n    sampling_event = factor(sampling_event),\n    sampling_event_num = as.numeric(as.character(sampling_event)),\n    log10_BQCV_load = log10(BQCV_pathogen_load + 1),\n    log10_DWV_load = log10(DWV_pathogen_load + 1),\n    log10_Nosema_load = log10(Nosema_pathogen_load + 1)\n  )\nglimpse(bee_dat)\n\nRows: 298\nColumns: 18\n$ id                     &lt;dbl&gt; 1, 3, 4, 5, 6, 8, 10, 11, 12, 13, 15, 16, 17, 1…\n$ sampling_date          &lt;date&gt; 2020-09-09, 2020-09-10, 2020-09-10, 2020-09-09…\n$ site_code              &lt;fct&gt; BOST, MUDGE, MUDGE, BOST, CIND, MUDGE, CIND, BO…\n$ field_id               &lt;fct&gt; 6, 18, 11, 11, 14, 4, 13, 38, 5, 12, 18, 23, 20…\n$ bombus_spp             &lt;fct&gt; impatiens, impatiens, impatiens, impatiens, imp…\n$ host_plant             &lt;fct&gt; solidago, crown vetch, crown vetch, solidago, k…\n$ bee_caste              &lt;fct&gt; worker, worker, worker, male, worker, worker, w…\n$ sampling_event         &lt;fct&gt; 4, 4, 4, 4, 4, 4, 4, 2, 4, 4, 4, 4, 4, 4, 4, 4,…\n$ BQCV_pathogen_binary   &lt;dbl&gt; 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1,…\n$ DWV_pathogen_binary    &lt;dbl&gt; 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1,…\n$ Nosema_pathogen_binary &lt;dbl&gt; NA, 0, 1, NA, 0, NA, 0, 0, 0, 0, 1, 0, 0, 0, 0,…\n$ BQCV_pathogen_load     &lt;dbl&gt; 2414168.8, 760793.2, 0.0, 0.0, 124236.8, 413814…\n$ DWV_pathogen_load      &lt;dbl&gt; 85329.54, 45153.03, 0.00, 0.00, 215750.28, 2769…\n$ Nosema_pathogen_load   &lt;dbl&gt; NA, 0, 225000, NA, 0, NA, 0, 0, 0, 0, 50000, 0,…\n$ sampling_event_num     &lt;dbl&gt; 4, 4, 4, 4, 4, 4, 4, 2, 4, 4, 4, 4, 4, 4, 4, 4,…\n$ log10_BQCV_load        &lt;dbl&gt; 6.382768, 5.881267, 0.000000, 0.000000, 5.09425…\n$ log10_DWV_load         &lt;dbl&gt; 4.931105, 4.654697, 0.000000, 0.000000, 5.33395…\n$ log10_Nosema_load      &lt;dbl&gt; NA, 0.000000, 5.352184, NA, 0.000000, NA, 0.000…\n\ndf_filtered &lt;- bee_dat[bee_dat$log10_DWV_load &gt; 0 & bee_dat$log10_BQCV_load &gt; 0, ]\n\n\n\nQuestion 1\n\nI used the Burnham_field_data to look at if different sampling events have an impact on disease abundance.\n\n\nThis was a non-gaussian (binomial function) and used an interaction term (do sampling events affect disease abundance)\n\nlibrary(dplyr)\n\nbee_dat_q1 &lt;- bee_dat %&gt;%\n  select(sampling_event,\n    BQCV_pathogen_binary,\n    DWV_pathogen_binary,\n    Nosema_pathogen_binary) %&gt;%\n  pivot_longer(\n    cols = c(BQCV_pathogen_binary, DWV_pathogen_binary, Nosema_pathogen_binary),\n    names_to = \"disease\",\n    values_to = \"abundance\"\n  )\n\nq1_plot &lt;- ggplot(bee_dat_q1, aes(x = sampling_event, y = abundance, color = disease))+\n  geom_smooth(method = \"glm\", method.args = list(family = binomial))+\n  labs(\n    title = \"Disease Abundance Across Different Sampling Events\",\n    y = \"Disease Abundance\",\n    x = \"Sampling Event\",\n    color = \"Disease\"\n  ) +\n  geom_jitter()\n\nplot(q1_plot)\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning: Removed 42 rows containing non-finite outside the scale range\n(`stat_smooth()`).\n\n\nWarning: Removed 42 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\nbee_dat_stat &lt;- glm(abundance ~ sampling_event, data = bee_dat_q1)\nAnova(bee_dat_stat)\n\nAnalysis of Deviance Table (Type II tests)\n\nResponse: abundance\n               LR Chisq Df Pr(&gt;Chisq)  \nsampling_event   9.6959  3    0.02134 *\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\n\n\nSampling events were catagorical, and when sampling you either have or don’t have the disease, so I used this plot to show a binary relationship if a disease was present during the sampling event\n\n\nThe p-value was 0.02134, which is not statistially significant, so sampling events don’t affect disease abundance. I expected the data to not be statistically significant, as I didn’t think the sampling events occured over a long period of time.\n\n\nHowever, if the sampling event occured over a longer time period, then it may have been interesting to see if disease abundance was changing over time, but I don’t know the time frame of sampling events\n\n\n\nQuestion 2\n\n\nI looked at removing sampling events (random effects) to see if the type of host plants affects disease prevelence\n\nq2_dwv &lt;- lmer(\n  log10_DWV_load ~ host_plant + (1 | sampling_event), data = bee_dat\n)\n\nq2_bqcv &lt;- lmer(\n  log10_BQCV_load ~ host_plant + (1 | sampling_event), data = bee_dat\n)\n\nq2_nos &lt;- lmer(\n  log10_Nosema_load ~ host_plant + (1 | sampling_event), data = bee_dat\n)\n\n\nq2_plot_nos &lt;- ggplot(bee_dat, aes(x = host_plant, y = Nosema_pathogen_load))+\n  geom_point(color = \"darksalmon\")+\n  labs(\n    title = \"Nosema Pathogen Abundance Across Different Host Plane Species\",\n    y = \"Disease Abundance\",\n    x = \"Host Plant\",\n    color = \"Disease\"\n  )\n\nq2_plot_nos + coord_flip()\n\nIgnoring unknown labels:\n• colour : \"Disease\"\n\n\nWarning: Removed 25 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\nq2_plot_bqcv &lt;- ggplot(bee_dat, aes(x = host_plant, y = log10_BQCV_load))+\n  geom_point(color = \"goldenrod\") +\n  labs(\n    title = \"BQCV Pathogen Abundance Across Different Host Plane Species\",\n    y = \"Disease Abundance\",\n    x = \"Host Plant\",\n    color = \"Disease\"\n  )\nq2_plot_bqcv + coord_flip()\n\nIgnoring unknown labels:\n• colour : \"Disease\"\n\n\nWarning: Removed 12 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\nq2_plot_dwv &lt;- ggplot(bee_dat, aes(x = host_plant, y = log10_DWV_load))+\n  geom_point(color = \"royalblue3\")+\n  labs(\n    title = \"DWV Pathogen Abundance Across Different Host Plant Species\",\n    y = \"Disease Abundance\",\n    x = \"Host Plant\",\n    color = \"Disease\"\n  )\nq2_plot_dwv + coord_flip()\n\nIgnoring unknown labels:\n• colour : \"Disease\"\n\n\nWarning: Removed 5 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\nq2_anova &lt;- manova(\n  cbind(log10_Nosema_load,\n    log10_DWV_load,\n    log10_BQCV_load) ~ host_plant,\n  data = bee_dat\n)\n\nsummary(q2_anova)\n\n            Df Pillai approx F num Df den Df Pr(&gt;F)\nhost_plant  12  0.134  0.96239     36    741 0.5337\nResiduals  247                                     \n\n\n\nthere isn’t a statistically significant difference between different host plants and disease abundances, as the p-value was 0.5337\n\n\nI constructed the model like this because host plants are a catagorical variable, and this plot effectively shows disease abundance for each plant.\n\n\nI removed sampling events from the data in case sampling events would have had an affect on pathogen abundance. If the sampling events were over a longer period of time, it could have potentially affected disease abundances"
   }
 ]

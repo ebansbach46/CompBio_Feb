@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Homework 13 – CompBio_Feb</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">CompBio_Feb</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section">4.15.26</a></li>
+  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a>
+  <ul class="collapse">
+  <li><a href="#i-used-the-burnham_field_data-to-look-at-if-different-sampling-events-have-an-impact-on-disease-abundance." id="toc-i-used-the-burnham_field_data-to-look-at-if-different-sampling-events-have-an-impact-on-disease-abundance." class="nav-link" data-scroll-target="#i-used-the-burnham_field_data-to-look-at-if-different-sampling-events-have-an-impact-on-disease-abundance.">I used the Burnham_field_data to look at if different sampling events have an impact on disease abundance.</a></li>
+  <li><a href="#this-was-a-non-gaussian-binomial-function-and-used-an-interaction-term-do-sampling-events-affect-disease-abundance" id="toc-this-was-a-non-gaussian-binomial-function-and-used-an-interaction-term-do-sampling-events-affect-disease-abundance" class="nav-link" data-scroll-target="#this-was-a-non-gaussian-binomial-function-and-used-an-interaction-term-do-sampling-events-affect-disease-abundance">This was a non-gaussian (binomial function) and used an interaction term (do sampling events affect disease abundance)</a></li>
+  <li><a href="#sampling-events-were-catagorical-and-when-sampling-you-either-have-or-dont-have-the-disease-so-i-used-this-plot-to-show-a-binary-relationship-if-a-disease-was-present-during-the-sampling-event" id="toc-sampling-events-were-catagorical-and-when-sampling-you-either-have-or-dont-have-the-disease-so-i-used-this-plot-to-show-a-binary-relationship-if-a-disease-was-present-during-the-sampling-event" class="nav-link" data-scroll-target="#sampling-events-were-catagorical-and-when-sampling-you-either-have-or-dont-have-the-disease-so-i-used-this-plot-to-show-a-binary-relationship-if-a-disease-was-present-during-the-sampling-event">Sampling events were catagorical, and when sampling you either have or don’t have the disease, so I used this plot to show a binary relationship if a disease was present during the sampling event</a></li>
+  <li><a href="#the-p-value-was-0.02134-which-is-not-statistially-significant-so-sampling-events-dont-affect-disease-abundance.-i-expected-the-data-to-not-be-statistically-significant-as-i-didnt-think-the-sampling-events-occured-over-a-long-period-of-time." id="toc-the-p-value-was-0.02134-which-is-not-statistially-significant-so-sampling-events-dont-affect-disease-abundance.-i-expected-the-data-to-not-be-statistically-significant-as-i-didnt-think-the-sampling-events-occured-over-a-long-period-of-time." class="nav-link" data-scroll-target="#the-p-value-was-0.02134-which-is-not-statistially-significant-so-sampling-events-dont-affect-disease-abundance.-i-expected-the-data-to-not-be-statistically-significant-as-i-didnt-think-the-sampling-events-occured-over-a-long-period-of-time.">The p-value was 0.02134, which is not statistially significant, so sampling events don’t affect disease abundance. I expected the data to not be statistically significant, as I didn’t think the sampling events occured over a long period of time.</a></li>
+  <li><a href="#however-if-the-sampling-event-occured-over-a-longer-time-period-then-it-may-have-been-interesting-to-see-if-disease-abundance-was-changing-over-time-but-i-dont-know-the-time-frame-of-sampling-events" id="toc-however-if-the-sampling-event-occured-over-a-longer-time-period-then-it-may-have-been-interesting-to-see-if-disease-abundance-was-changing-over-time-but-i-dont-know-the-time-frame-of-sampling-events" class="nav-link" data-scroll-target="#however-if-the-sampling-event-occured-over-a-longer-time-period-then-it-may-have-been-interesting-to-see-if-disease-abundance-was-changing-over-time-but-i-dont-know-the-time-frame-of-sampling-events">However, if the sampling event occured over a longer time period, then it may have been interesting to see if disease abundance was changing over time, but I don’t know the time frame of sampling events</a></li>
+  </ul></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
+  <li><a href="#i-looked-at-removing-sampling-events-random-effects-to-see-if-the-type-of-host-plants-affects-disease-prevelence" id="toc-i-looked-at-removing-sampling-events-random-effects-to-see-if-the-type-of-host-plants-affects-disease-prevelence" class="nav-link" data-scroll-target="#i-looked-at-removing-sampling-events-random-effects-to-see-if-the-type-of-host-plants-affects-disease-prevelence">I looked at removing sampling events (random effects) to see if the type of host plants affects disease prevelence</a>
+  <ul class="collapse">
+  <li><a href="#there-isnt-a-statistically-significant-difference-between-different-host-plants-and-disease-abundances-as-the-p-value-was-0.5337" id="toc-there-isnt-a-statistically-significant-difference-between-different-host-plants-and-disease-abundances-as-the-p-value-was-0.5337" class="nav-link" data-scroll-target="#there-isnt-a-statistically-significant-difference-between-different-host-plants-and-disease-abundances-as-the-p-value-was-0.5337">there isn’t a statistically significant difference between different host plants and disease abundances, as the p-value was 0.5337</a></li>
+  <li><a href="#i-constructed-the-model-like-this-because-host-plants-are-a-catagorical-variable-and-this-plot-effectively-shows-disease-abundance-for-each-plant." id="toc-i-constructed-the-model-like-this-because-host-plants-are-a-catagorical-variable-and-this-plot-effectively-shows-disease-abundance-for-each-plant." class="nav-link" data-scroll-target="#i-constructed-the-model-like-this-because-host-plants-are-a-catagorical-variable-and-this-plot-effectively-shows-disease-abundance-for-each-plant.">I constructed the model like this because host plants are a catagorical variable, and this plot effectively shows disease abundance for each plant.</a></li>
+  <li><a href="#i-removed-sampling-events-from-the-data-in-case-sampling-events-would-have-had-an-affect-on-pathogen-abundance.-if-the-sampling-events-were-over-a-longer-period-of-time-it-could-have-potentially-affected-disease-abundances" id="toc-i-removed-sampling-events-from-the-data-in-case-sampling-events-would-have-had-an-affect-on-pathogen-abundance.-if-the-sampling-events-were-over-a-longer-period-of-time-it-could-have-potentially-affected-disease-abundances" class="nav-link" data-scroll-target="#i-removed-sampling-events-from-the-data-in-case-sampling-events-would-have-had-an-affect-on-pathogen-abundance.-if-the-sampling-events-were-over-a-longer-period-of-time-it-could-have-potentially-affected-disease-abundances">I removed sampling events from the data in case sampling events would have had an affect on pathogen abundance. If the sampling events were over a longer period of time, it could have potentially affected disease abundances</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Homework 13</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="section" class="level1">
+<h1>4.15.26</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'dplyr' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.0     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   4.0.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'lme4' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Matrix
+
+Attaching package: 'Matrix'
+
+The following objects are masked from 'package:tidyr':
+
+    expand, pack, unpack</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'car' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: carData</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'carData' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Registered S3 method overwritten by 'car':
+  method           from
+  na.action.merMod lme4
+
+Attaching package: 'car'
+
+The following object is masked from 'package:dplyr':
+
+    recode
+
+The following object is masked from 'package:purrr':
+
+    some</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>bee_dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Burnham_field_data_pathogens_wide.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 298 Columns: 14
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (5): sampling_date, site_code, bombus_spp, host_plant, bee_caste
+dbl (9): id, field_id, sampling_event, BQCV_pathogen_binary, DWV_pathogen_bi...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>bee_dat <span class="ot">&lt;-</span> bee_dat <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">sampling_date =</span> <span class="fu">mdy</span>(sampling_date),</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">site_code =</span> <span class="fu">factor</span>(site_code),</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">field_id =</span> <span class="fu">factor</span>(field_id),</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">bee_caste =</span> <span class="fu">factor</span>(bee_caste),</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">bombus_spp =</span> <span class="fu">factor</span>(bombus_spp),</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">host_plant =</span> <span class="fu">factor</span>(host_plant),</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">sampling_event =</span> <span class="fu">factor</span>(sampling_event),</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">sampling_event_num =</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(sampling_event)),</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">log10_BQCV_load =</span> <span class="fu">log10</span>(BQCV_pathogen_load <span class="sc">+</span> <span class="dv">1</span>),</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">log10_DWV_load =</span> <span class="fu">log10</span>(DWV_pathogen_load <span class="sc">+</span> <span class="dv">1</span>),</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">log10_Nosema_load =</span> <span class="fu">log10</span>(Nosema_pathogen_load <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(bee_dat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 298
+Columns: 18
+$ id                     &lt;dbl&gt; 1, 3, 4, 5, 6, 8, 10, 11, 12, 13, 15, 16, 17, 1…
+$ sampling_date          &lt;date&gt; 2020-09-09, 2020-09-10, 2020-09-10, 2020-09-09…
+$ site_code              &lt;fct&gt; BOST, MUDGE, MUDGE, BOST, CIND, MUDGE, CIND, BO…
+$ field_id               &lt;fct&gt; 6, 18, 11, 11, 14, 4, 13, 38, 5, 12, 18, 23, 20…
+$ bombus_spp             &lt;fct&gt; impatiens, impatiens, impatiens, impatiens, imp…
+$ host_plant             &lt;fct&gt; solidago, crown vetch, crown vetch, solidago, k…
+$ bee_caste              &lt;fct&gt; worker, worker, worker, male, worker, worker, w…
+$ sampling_event         &lt;fct&gt; 4, 4, 4, 4, 4, 4, 4, 2, 4, 4, 4, 4, 4, 4, 4, 4,…
+$ BQCV_pathogen_binary   &lt;dbl&gt; 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1,…
+$ DWV_pathogen_binary    &lt;dbl&gt; 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1,…
+$ Nosema_pathogen_binary &lt;dbl&gt; NA, 0, 1, NA, 0, NA, 0, 0, 0, 0, 1, 0, 0, 0, 0,…
+$ BQCV_pathogen_load     &lt;dbl&gt; 2414168.8, 760793.2, 0.0, 0.0, 124236.8, 413814…
+$ DWV_pathogen_load      &lt;dbl&gt; 85329.54, 45153.03, 0.00, 0.00, 215750.28, 2769…
+$ Nosema_pathogen_load   &lt;dbl&gt; NA, 0, 225000, NA, 0, NA, 0, 0, 0, 0, 50000, 0,…
+$ sampling_event_num     &lt;dbl&gt; 4, 4, 4, 4, 4, 4, 4, 2, 4, 4, 4, 4, 4, 4, 4, 4,…
+$ log10_BQCV_load        &lt;dbl&gt; 6.382768, 5.881267, 0.000000, 0.000000, 5.09425…
+$ log10_DWV_load         &lt;dbl&gt; 4.931105, 4.654697, 0.000000, 0.000000, 5.33395…
+$ log10_Nosema_load      &lt;dbl&gt; NA, 0.000000, 5.352184, NA, 0.000000, NA, 0.000…</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df_filtered <span class="ot">&lt;-</span> bee_dat[bee_dat<span class="sc">$</span>log10_DWV_load <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> bee_dat<span class="sc">$</span>log10_BQCV_load <span class="sc">&gt;</span> <span class="dv">0</span>, ]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="question-1" class="level1">
+<h1>Question 1</h1>
+<section id="i-used-the-burnham_field_data-to-look-at-if-different-sampling-events-have-an-impact-on-disease-abundance." class="level3">
+<h3 class="anchored" data-anchor-id="i-used-the-burnham_field_data-to-look-at-if-different-sampling-events-have-an-impact-on-disease-abundance.">I used the Burnham_field_data to look at if different sampling events have an impact on disease abundance.</h3>
+</section>
+<section id="this-was-a-non-gaussian-binomial-function-and-used-an-interaction-term-do-sampling-events-affect-disease-abundance" class="level3">
+<h3 class="anchored" data-anchor-id="this-was-a-non-gaussian-binomial-function-and-used-an-interaction-term-do-sampling-events-affect-disease-abundance">This was a non-gaussian (binomial function) and used an interaction term (do sampling events affect disease abundance)</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>bee_dat_q1 <span class="ot">&lt;-</span> bee_dat <span class="sc">%&gt;%</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sampling_event,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    BQCV_pathogen_binary,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    DWV_pathogen_binary,</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    Nosema_pathogen_binary) <span class="sc">%&gt;%</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(BQCV_pathogen_binary, DWV_pathogen_binary, Nosema_pathogen_binary),</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"disease"</span>,</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"abundance"</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>q1_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(bee_dat_q1, <span class="fu">aes</span>(<span class="at">x =</span> sampling_event, <span class="at">y =</span> abundance, <span class="at">color =</span> disease))<span class="sc">+</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"glm"</span>, <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> binomial))<span class="sc">+</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Disease Abundance Across Different Sampling Events"</span>,</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Disease Abundance"</span>,</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Sampling Event"</span>,</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Disease"</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>()</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(q1_plot)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 42 rows containing non-finite outside the scale range
+(`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 42 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hw13_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>bee_dat_stat <span class="ot">&lt;-</span> <span class="fu">glm</span>(abundance <span class="sc">~</span> sampling_event, <span class="at">data =</span> bee_dat_q1)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Anova</span>(bee_dat_stat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Deviance Table (Type II tests)
+
+Response: abundance
+               LR Chisq Df Pr(&gt;Chisq)  
+sampling_event   9.6959  3    0.02134 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+<section id="sampling-events-were-catagorical-and-when-sampling-you-either-have-or-dont-have-the-disease-so-i-used-this-plot-to-show-a-binary-relationship-if-a-disease-was-present-during-the-sampling-event" class="level3">
+<h3 class="anchored" data-anchor-id="sampling-events-were-catagorical-and-when-sampling-you-either-have-or-dont-have-the-disease-so-i-used-this-plot-to-show-a-binary-relationship-if-a-disease-was-present-during-the-sampling-event">Sampling events were catagorical, and when sampling you either have or don’t have the disease, so I used this plot to show a binary relationship if a disease was present during the sampling event</h3>
+</section>
+<section id="the-p-value-was-0.02134-which-is-not-statistially-significant-so-sampling-events-dont-affect-disease-abundance.-i-expected-the-data-to-not-be-statistically-significant-as-i-didnt-think-the-sampling-events-occured-over-a-long-period-of-time." class="level3">
+<h3 class="anchored" data-anchor-id="the-p-value-was-0.02134-which-is-not-statistially-significant-so-sampling-events-dont-affect-disease-abundance.-i-expected-the-data-to-not-be-statistically-significant-as-i-didnt-think-the-sampling-events-occured-over-a-long-period-of-time.">The p-value was 0.02134, which is not statistially significant, so sampling events don’t affect disease abundance. I expected the data to not be statistically significant, as I didn’t think the sampling events occured over a long period of time.</h3>
+</section>
+<section id="however-if-the-sampling-event-occured-over-a-longer-time-period-then-it-may-have-been-interesting-to-see-if-disease-abundance-was-changing-over-time-but-i-dont-know-the-time-frame-of-sampling-events" class="level3">
+<h3 class="anchored" data-anchor-id="however-if-the-sampling-event-occured-over-a-longer-time-period-then-it-may-have-been-interesting-to-see-if-disease-abundance-was-changing-over-time-but-i-dont-know-the-time-frame-of-sampling-events">However, if the sampling event occured over a longer time period, then it may have been interesting to see if disease abundance was changing over time, but I don’t know the time frame of sampling events</h3>
+</section>
+</section>
+<section id="question-2" class="level1">
+<h1>Question 2</h1>
+</section>
+<section id="i-looked-at-removing-sampling-events-random-effects-to-see-if-the-type-of-host-plants-affects-disease-prevelence" class="level1">
+<h1>I looked at removing sampling events (random effects) to see if the type of host plants affects disease prevelence</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>q2_dwv <span class="ot">&lt;-</span> <span class="fu">lmer</span>(</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  log10_DWV_load <span class="sc">~</span> host_plant <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> sampling_event), <span class="at">data =</span> bee_dat</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>q2_bqcv <span class="ot">&lt;-</span> <span class="fu">lmer</span>(</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  log10_BQCV_load <span class="sc">~</span> host_plant <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> sampling_event), <span class="at">data =</span> bee_dat</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>q2_nos <span class="ot">&lt;-</span> <span class="fu">lmer</span>(</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  log10_Nosema_load <span class="sc">~</span> host_plant <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> sampling_event), <span class="at">data =</span> bee_dat</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>q2_plot_nos <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(bee_dat, <span class="fu">aes</span>(<span class="at">x =</span> host_plant, <span class="at">y =</span> Nosema_pathogen_load))<span class="sc">+</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"darksalmon"</span>)<span class="sc">+</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Nosema Pathogen Abundance Across Different Host Plane Species"</span>,</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Disease Abundance"</span>,</span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Host Plant"</span>,</span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Disease"</span></span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>q2_plot_nos <span class="sc">+</span> <span class="fu">coord_flip</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Ignoring unknown labels:
+• colour : "Disease"</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 25 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hw13_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>q2_plot_bqcv <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(bee_dat, <span class="fu">aes</span>(<span class="at">x =</span> host_plant, <span class="at">y =</span> log10_BQCV_load))<span class="sc">+</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"goldenrod"</span>) <span class="sc">+</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"BQCV Pathogen Abundance Across Different Host Plane Species"</span>,</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Disease Abundance"</span>,</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Host Plant"</span>,</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Disease"</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>q2_plot_bqcv <span class="sc">+</span> <span class="fu">coord_flip</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Ignoring unknown labels:
+• colour : "Disease"</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 12 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hw13_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>q2_plot_dwv <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(bee_dat, <span class="fu">aes</span>(<span class="at">x =</span> host_plant, <span class="at">y =</span> log10_DWV_load))<span class="sc">+</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"royalblue3"</span>)<span class="sc">+</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"DWV Pathogen Abundance Across Different Host Plant Species"</span>,</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Disease Abundance"</span>,</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Host Plant"</span>,</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Disease"</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>q2_plot_dwv <span class="sc">+</span> <span class="fu">coord_flip</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Ignoring unknown labels:
+• colour : "Disease"</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 5 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hw13_files/figure-html/unnamed-chunk-3-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>q2_anova <span class="ot">&lt;-</span> <span class="fu">manova</span>(</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cbind</span>(log10_Nosema_load,</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    log10_DWV_load,</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    log10_BQCV_load) <span class="sc">~</span> host_plant,</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> bee_dat</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(q2_anova)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df Pillai approx F num Df den Df Pr(&gt;F)
+host_plant  12  0.134  0.96239     36    741 0.5337
+Residuals  247                                     </code></pre>
+</div>
+</div>
+<section id="there-isnt-a-statistically-significant-difference-between-different-host-plants-and-disease-abundances-as-the-p-value-was-0.5337" class="level3">
+<h3 class="anchored" data-anchor-id="there-isnt-a-statistically-significant-difference-between-different-host-plants-and-disease-abundances-as-the-p-value-was-0.5337">there isn’t a statistically significant difference between different host plants and disease abundances, as the p-value was 0.5337</h3>
+</section>
+<section id="i-constructed-the-model-like-this-because-host-plants-are-a-catagorical-variable-and-this-plot-effectively-shows-disease-abundance-for-each-plant." class="level3">
+<h3 class="anchored" data-anchor-id="i-constructed-the-model-like-this-because-host-plants-are-a-catagorical-variable-and-this-plot-effectively-shows-disease-abundance-for-each-plant.">I constructed the model like this because host plants are a catagorical variable, and this plot effectively shows disease abundance for each plant.</h3>
+</section>
+<section id="i-removed-sampling-events-from-the-data-in-case-sampling-events-would-have-had-an-affect-on-pathogen-abundance.-if-the-sampling-events-were-over-a-longer-period-of-time-it-could-have-potentially-affected-disease-abundances" class="level3">
+<h3 class="anchored" data-anchor-id="i-removed-sampling-events-from-the-data-in-case-sampling-events-would-have-had-an-affect-on-pathogen-abundance.-if-the-sampling-events-were-over-a-longer-period-of-time-it-could-have-potentially-affected-disease-abundances">I removed sampling events from the data in case sampling events would have had an affect on pathogen abundance. If the sampling events were over a longer period of time, it could have potentially affected disease abundances</h3>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

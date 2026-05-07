@@ -1,14 +1,17 @@
-# Homework 12
-# update conda: $ conda update -n base -c defaults conda
+---
+title: "Homework 12"
+format: html
+---
 
+# Question 1
 
+```{python}
 from math import exp
 import json
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
-# Question 1
 gap = px.data.gapminder().query("year==1972")
 
 europe = gap.query("continent == 'Europe'") #new
@@ -34,7 +37,10 @@ fig.update_geos(
 )   
 
 fig.show()
-# something new
+```
+
+## Something new
+```{python}
 fig = px.choropleth(
     europe,
     locations = "iso_alpha",
@@ -56,11 +62,14 @@ fig.update_geos(
     landcolor = "rgb(240,240,240)"
 )   
 fig.show()
+```
 
-# I used range_color to change the color range for GDP on the map
-# The color range is now less variable, and doesn't show differences in GDP with color as well
+## I used range_color to change the color range for GDP on the map
+## The color range is now less variable, and doesn't show differences in GDP with color as well
 
 # Question 2
+
+```{python}
 gap2 = px.data.gapminder().query("year==1972")
 
 fig2 = px.scatter_geo(
@@ -78,9 +87,14 @@ fig2 = px.scatter_geo(
 
 )
 fig2.show()
-# something new
+```
+
+## something new
+
+```{python}
 fig2.update_traces(opacity=0.5)
 fig2.show()
+```
 
-# The new argument I used was update_traces to change the opacity of the map colors
-# It changed the map by making the colors of the bubbles on the map less opaque
+## The new argument I used was update_traces to change the opacity of the map colors
+## It changed the map by making the colors of the bubbles on the map less opaque

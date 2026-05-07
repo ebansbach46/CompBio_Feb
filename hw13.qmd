@@ -1,6 +1,10 @@
-# Homework 13
-# 4.15.26
+---
+title: "Homework 13"
+format: html
+---
 
+# 4.15.26
+```{r}
 library(tidyverse)
 library(lubridate)
 library(lme4)
@@ -26,22 +30,14 @@ bee_dat <- bee_dat %>%
 glimpse(bee_dat)
 
 df_filtered <- bee_dat[bee_dat$log10_DWV_load > 0 & bee_dat$log10_BQCV_load > 0, ]
-
-#At least one non-guassian distribution
-#At least one interaction term
-#At least one mixed model with a random effect.
-
-# int term: does one variable depend on the value of another variable
-# host plant and 
-
-
-# random: accounts for error associated with variables, and removes them so you can focus on other variables
-# host plant has an impact, so if remove it can you just see then how disease varies across bombus
+```
 
 
 # Question 1
 ### I used the Burnham_field_data to look at if different sampling events have an impact on disease abundance.
 ### This was a non-gaussian (binomial function) and used an interaction term (do sampling events affect disease abundance)
+
+```{r}
 library(dplyr)
 
 bee_dat_q1 <- bee_dat %>%
@@ -71,13 +67,17 @@ plot(q1_plot)
 
 bee_dat_stat <- glm(abundance ~ sampling_event, data = bee_dat_q1)
 Anova(bee_dat_stat)
+```
+
+
 ### Sampling events were catagorical, and when sampling you either have or don't have the disease, so I used this plot to show a binary relationship if a disease was present during the sampling event
 ### The p-value was 0.02134, which is not statistially significant, so sampling events don't affect disease abundance. I expected the data to not be statistically significant, as I didn't think the sampling events occured over a long period of time. 
 ### However, if the sampling event occured over a longer time period, then it may have been interesting to see if disease abundance was changing over time, but I don't know the time frame of sampling events
 
-# Question 2 ####################################################
-# I looked at removing sampling events to see if the type of host plants affects disease prevelence
+# Question 2 
+# I looked at removing sampling events (random effects) to see if the type of host plants affects disease prevelence
 
+```{r}
 q2_dwv <- lmer(
   log10_DWV_load ~ host_plant + (1 | sampling_event), data = bee_dat
 )
@@ -134,6 +134,7 @@ q2_anova <- manova(
 )
 
 summary(q2_anova)
+```
 
 ### there isn't a statistically significant difference between different host plants and disease abundances, as the p-value was 0.5337
 ### I constructed the model like this because host plants are a catagorical variable, and this plot effectively shows disease abundance for each plant. 

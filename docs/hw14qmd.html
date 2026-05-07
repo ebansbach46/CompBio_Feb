@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Homework 14 – CompBio_Feb</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">CompBio_Feb</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section">4.22.26</a></li>
+  <li><a href="#pca" id="toc-pca" class="nav-link" data-scroll-target="#pca">PCA</a>
+  <ul class="collapse">
+  <li><a href="#there-is-some-variation-in-separation-along-the-x-axis-pc1-but-for-the-y-axis-pc2-there-is-not-much-separation-occuring" id="toc-there-is-some-variation-in-separation-along-the-x-axis-pc1-but-for-the-y-axis-pc2-there-is-not-much-separation-occuring" class="nav-link" data-scroll-target="#there-is-some-variation-in-separation-along-the-x-axis-pc1-but-for-the-y-axis-pc2-there-is-not-much-separation-occuring">There is some variation in separation along the x-axis (PC1), but for the y-axis (PC2) there is not much separation occuring</a></li>
+  <li><a href="#one-pc-is-needed" id="toc-one-pc-is-needed" class="nav-link" data-scroll-target="#one-pc-is-needed">One PC is needed</a></li>
+  <li><a href="#due-to-the-steep-difference-in-values-on-the-scree-plot-for-pc1-and-pc2-and-smaller-eigen-values-for-other-pcs-the-variance-was-explained-by-both-of-the-pcs" id="toc-due-to-the-steep-difference-in-values-on-the-scree-plot-for-pc1-and-pc2-and-smaller-eigen-values-for-other-pcs-the-variance-was-explained-by-both-of-the-pcs" class="nav-link" data-scroll-target="#due-to-the-steep-difference-in-values-on-the-scree-plot-for-pc1-and-pc2-and-smaller-eigen-values-for-other-pcs-the-variance-was-explained-by-both-of-the-pcs">Due to the steep difference in values on the scree plot for PC1 and PC2, and smaller eigen values for other PCs, the variance was explained by both of the PCs</a></li>
+  <li><a href="#the-bartletts-test-had-a-p-value-of-2.044721e-272-which-is-statistically-significant-showing-there-is-a-difference-between-groups" id="toc-the-bartletts-test-had-a-p-value-of-2.044721e-272-which-is-statistically-significant-showing-there-is-a-difference-between-groups" class="nav-link" data-scroll-target="#the-bartletts-test-had-a-p-value-of-2.044721e-272-which-is-statistically-significant-showing-there-is-a-difference-between-groups">The bartletts test had a p-value of 2.044721e-272, which is statistically significant, showing there is a difference between groups</a></li>
+  <li><a href="#the-variables-contributing-the-most-to-pc1-are-displ-cyl-cty-and-hwy" id="toc-the-variables-contributing-the-most-to-pc1-are-displ-cyl-cty-and-hwy" class="nav-link" data-scroll-target="#the-variables-contributing-the-most-to-pc1-are-displ-cyl-cty-and-hwy">The variables contributing the most to PC1 are displ, cyl, cty, and hwy</a></li>
+  <li><a href="#the-variable-contributing-the-most-to-pc2-is-year" id="toc-the-variable-contributing-the-most-to-pc2-is-year" class="nav-link" data-scroll-target="#the-variable-contributing-the-most-to-pc2-is-year">The variable contributing the most to PC2 is year</a></li>
+  </ul></li>
+  <li><a href="#random-forest" id="toc-random-forest" class="nav-link" data-scroll-target="#random-forest">Random forest</a>
+  <ul class="collapse">
+  <li><a href="#confusion-matrix" id="toc-confusion-matrix" class="nav-link" data-scroll-target="#confusion-matrix">confusion matrix</a></li>
+  <li><a href="#oob-estimate-of-error-rate-24.54" id="toc-oob-estimate-of-error-rate-24.54" class="nav-link" data-scroll-target="#oob-estimate-of-error-rate-24.54">OOB estimate of error rate = 24.54%</a></li>
+  <li><a href="#based-on-my-confusion-matrix-it-was-somewhat-accurate-at-classifying-some-car-manufacturers-were-classified-very-accurately-while-others-were-less-accurate" id="toc-based-on-my-confusion-matrix-it-was-somewhat-accurate-at-classifying-some-car-manufacturers-were-classified-very-accurately-while-others-were-less-accurate" class="nav-link" data-scroll-target="#based-on-my-confusion-matrix-it-was-somewhat-accurate-at-classifying-some-car-manufacturers-were-classified-very-accurately-while-others-were-less-accurate">Based on my confusion matrix, it was somewhat accurate at classifying, some car manufacturers were classified very accurately while others were less accurate</a></li>
+  <li><a href="#the-more-abundant-a-car-manufacturer-it-generally-was-more-accurate-when-classified-and-vice-versa" id="toc-the-more-abundant-a-car-manufacturer-it-generally-was-more-accurate-when-classified-and-vice-versa" class="nav-link" data-scroll-target="#the-more-abundant-a-car-manufacturer-it-generally-was-more-accurate-when-classified-and-vice-versa">The more abundant a car manufacturer it generally was more accurate when classified, and vice versa</a></li>
+  <li><a href="#variables-the-most-important-based-on" id="toc-variables-the-most-important-based-on" class="nav-link" data-scroll-target="#variables-the-most-important-based-on">Variables the most important based on:</a></li>
+  <li><a href="#mean-decrease-accuracy-model-was-the-greatest-value-then-displ-drv-cty-then-class." id="toc-mean-decrease-accuracy-model-was-the-greatest-value-then-displ-drv-cty-then-class." class="nav-link" data-scroll-target="#mean-decrease-accuracy-model-was-the-greatest-value-then-displ-drv-cty-then-class.">Mean Decrease Accuracy: model was the greatest value, then displ, drv, cty, then class.</a></li>
+  <li><a href="#mean-decrease-gini-model-had-the-greatest-value-then-displ-class-cty-and-highway." id="toc-mean-decrease-gini-model-had-the-greatest-value-then-displ-class-cty-and-highway." class="nav-link" data-scroll-target="#mean-decrease-gini-model-had-the-greatest-value-then-displ-class-cty-and-highway.">Mean Decrease Gini: model had the greatest value, then displ, class, cty, and highway.</a></li>
+  </ul></li>
+  <li><a href="#summary-and-output" id="toc-summary-and-output" class="nav-link" data-scroll-target="#summary-and-output">Summary and Output:</a>
+  <ul class="collapse">
+  <li><a href="#my-two-models-agreed-a-little-bit-on-variable-importance.-year-was-the-most-important-with-the-pcas-but-was-only-minorly-important-for-random-forest." id="toc-my-two-models-agreed-a-little-bit-on-variable-importance.-year-was-the-most-important-with-the-pcas-but-was-only-minorly-important-for-random-forest." class="nav-link" data-scroll-target="#my-two-models-agreed-a-little-bit-on-variable-importance.-year-was-the-most-important-with-the-pcas-but-was-only-minorly-important-for-random-forest.">My two models agreed a little bit on variable importance. Year was the most important with the PCAs but was only minorly important for random forest.</a></li>
+  <li><a href="#model-displ-class-and-fl-were-the-most-important-variables-for-random-forest-while-displ-cyl-cty-hwy-and-year-were-the-most-importat-for-the-pcas" id="toc-model-displ-class-and-fl-were-the-most-important-variables-for-random-forest-while-displ-cyl-cty-hwy-and-year-were-the-most-importat-for-the-pcas" class="nav-link" data-scroll-target="#model-displ-class-and-fl-were-the-most-important-variables-for-random-forest-while-displ-cyl-cty-hwy-and-year-were-the-most-importat-for-the-pcas">model, displ, class, and fl were the most important variables for random forest, while displ, cyl, cty, hwy, and year were the most importat for the PCAs</a></li>
+  <li><a href="#the-random-forest-broke-down-the-data-more-specifically-for-each-car-manufacturer-providing-more-data-for-each-manufacturer" id="toc-the-random-forest-broke-down-the-data-more-specifically-for-each-car-manufacturer-providing-more-data-for-each-manufacturer" class="nav-link" data-scroll-target="#the-random-forest-broke-down-the-data-more-specifically-for-each-car-manufacturer-providing-more-data-for-each-manufacturer">The random forest broke down the data more specifically for each car manufacturer, providing more data for each manufacturer,</a></li>
+  <li><a href="#while-the-pca-test-only-provided-data-for-some-of-the-variables-for-each-pca-test-which-seemed-to-get-at-more-of-an-overview-for-each-manufacturere" id="toc-while-the-pca-test-only-provided-data-for-some-of-the-variables-for-each-pca-test-which-seemed-to-get-at-more-of-an-overview-for-each-manufacturere" class="nav-link" data-scroll-target="#while-the-pca-test-only-provided-data-for-some-of-the-variables-for-each-pca-test-which-seemed-to-get-at-more-of-an-overview-for-each-manufacturere">while the PCA test only provided data for some of the variables for each PCA test, which seemed to get at more of an overview for each manufacturere,</a></li>
+  <li><a href="#while-you-could-see-much-more-variance-in-the-data-for-many-variables-for-each-manufacturer-with-random-forest" id="toc-while-you-could-see-much-more-variance-in-the-data-for-many-variables-for-each-manufacturer-with-random-forest" class="nav-link" data-scroll-target="#while-you-could-see-much-more-variance-in-the-data-for-many-variables-for-each-manufacturer-with-random-forest">while you could see much more variance in the data for many variables for each manufacturer with random forest</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Homework 14</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="section" class="level1">
+<h1>4.22.26</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'dplyr' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.0     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   4.0.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)        </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'psych' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'psych'
+
+The following objects are masked from 'package:ggplot2':
+
+    %+%, alpha</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(randomForest)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'randomForest' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>randomForest 4.7-1.2
+Type rfNews() to see new features/changes/bug fixes.
+
+Attaching package: 'randomForest'
+
+The following object is masked from 'package:psych':
+
+    outlier
+
+The following object is masked from 'package:dplyr':
+
+    combine
+
+The following object is masked from 'package:ggplot2':
+
+    margin</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>bee_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Burnham_field_data_pathogens_wide.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 298 Columns: 14
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (5): sampling_date, site_code, bombus_spp, host_plant, bee_caste
+dbl (9): id, field_id, sampling_event, BQCV_pathogen_binary, DWV_pathogen_bi...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bee_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 14
+     id sampling_date site_code field_id bombus_spp host_plant  bee_caste
+  &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;    
+1     1 9/9/20        BOST             6 impatiens  solidago    worker   
+2     3 9/10/20       MUDGE           18 impatiens  crown vetch worker   
+3     4 9/10/20       MUDGE           11 impatiens  crown vetch worker   
+4     5 9/9/20        BOST            11 impatiens  solidago    male     
+5     6 9/10/20       CIND            14 impatiens  knot weed   worker   
+6     8 9/10/20       MUDGE            4 impatiens  crown vetch worker   
+# ℹ 7 more variables: sampling_event &lt;dbl&gt;, BQCV_pathogen_binary &lt;dbl&gt;,
+#   DWV_pathogen_binary &lt;dbl&gt;, Nosema_pathogen_binary &lt;dbl&gt;,
+#   BQCV_pathogen_load &lt;dbl&gt;, DWV_pathogen_load &lt;dbl&gt;,
+#   Nosema_pathogen_load &lt;dbl&gt;</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mpg)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mpg)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 11
+  manufacturer model displ  year   cyl trans      drv     cty   hwy fl    class 
+  &lt;chr&gt;        &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;      &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; 
+1 audi         a4      1.8  1999     4 auto(l5)   f        18    29 p     compa…
+2 audi         a4      1.8  1999     4 manual(m5) f        21    29 p     compa…
+3 audi         a4      2    2008     4 manual(m6) f        20    31 p     compa…
+4 audi         a4      2    2008     4 auto(av)   f        21    30 p     compa…
+5 audi         a4      2.8  1999     6 auto(l5)   f        16    26 p     compa…
+6 audi         a4      2.8  1999     6 manual(m5) f        18    26 p     compa…</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(mpg)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tibble [234 × 11] (S3: tbl_df/tbl/data.frame)
+ $ manufacturer: chr [1:234] "audi" "audi" "audi" "audi" ...
+ $ model       : chr [1:234] "a4" "a4" "a4" "a4" ...
+ $ displ       : num [1:234] 1.8 1.8 2 2 2.8 2.8 3.1 1.8 1.8 2 ...
+ $ year        : int [1:234] 1999 1999 2008 2008 1999 1999 2008 1999 1999 2008 ...
+ $ cyl         : int [1:234] 4 4 4 4 6 6 6 4 4 4 ...
+ $ trans       : chr [1:234] "auto(l5)" "manual(m5)" "manual(m6)" "auto(av)" ...
+ $ drv         : chr [1:234] "f" "f" "f" "f" ...
+ $ cty         : int [1:234] 18 21 20 21 16 18 18 18 16 20 ...
+ $ hwy         : int [1:234] 29 29 31 30 26 26 27 26 25 28 ...
+ $ fl          : chr [1:234] "p" "p" "p" "p" ...
+ $ class       : chr [1:234] "compact" "compact" "compact" "compact" ...</code></pre>
+</div>
+</div>
+</section>
+<section id="pca" class="level1">
+<h1>PCA</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>mpg_num <span class="ot">&lt;-</span> mpg[, <span class="dv">8</span><span class="sc">:</span><span class="dv">9</span>]  <span class="co"># og line</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>mpg_num <span class="ot">&lt;-</span> mpg[, <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">9</span>)]</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">cor</span>(mpg_num), <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      displ  year   cyl   cty   hwy
+displ  1.00  0.15  0.93 -0.80 -0.77
+year   0.15  1.00  0.12 -0.04  0.00
+cyl    0.93  0.12  1.00 -0.81 -0.76
+cty   -0.80 -0.04 -0.81  1.00  0.96
+hwy   -0.77  0.00 -0.76  0.96  1.00</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>bart <span class="ot">&lt;-</span> <span class="fu">cortest.bartlett</span>(<span class="fu">cor</span>(mpg_num), <span class="at">n =</span> <span class="fu">nrow</span>(mpg_num))</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>bart</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$chisq
+[1] 1296.627
+
+$p.value
+[1] 2.044721e-272
+
+$df
+[1] 10</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(mpg_num, <span class="at">center =</span> <span class="cn">TRUE</span>, <span class="at">scale. =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Importance of components:
+                          PC1    PC2     PC3     PC4     PC5
+Standard deviation     1.8758 1.0070 0.59713 0.26584 0.20026
+Proportion of Variance 0.7037 0.2028 0.07131 0.01413 0.00802
+Cumulative Proportion  0.7037 0.9065 0.97785 0.99198 1.00000</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>eig <span class="ot">&lt;-</span> pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>pve <span class="ot">&lt;-</span> eig <span class="sc">/</span> <span class="fu">sum</span>(eig)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>pca_var_table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">PC =</span> <span class="fu">paste0</span>(<span class="st">"PC"</span>, <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(eig)),</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Eigenvalue =</span> <span class="fu">round</span>(eig, <span class="dv">3</span>),</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">PVE =</span> <span class="fu">round</span>(pve, <span class="dv">3</span>),</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">CumPVE =</span> <span class="fu">round</span>(<span class="fu">cumsum</span>(pve), <span class="dv">3</span>)</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>pca_var_table</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   PC Eigenvalue   PVE CumPVE
+1 PC1      3.519 0.704  0.704
+2 PC2      1.014 0.203  0.907
+3 PC3      0.357 0.071  0.978
+4 PC4      0.071 0.014  0.992
+5 PC5      0.040 0.008  1.000</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="do">###</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>mpg_cyl <span class="ot">&lt;-</span> mpg<span class="sc">$</span>cyl  <span class="co"># og</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>mpg_year <span class="ot">&lt;-</span> mpg<span class="sc">$</span>year</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>mpg_manufacturer <span class="ot">&lt;-</span> mpg<span class="sc">$</span>manufacturer</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(pca<span class="sc">$</span>x)</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>scores<span class="sc">$</span>cyl <span class="ot">&lt;-</span> mpg_cyl  <span class="co"># og</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>scores<span class="sc">$</span>manufacturer <span class="ot">&lt;-</span> mpg_manufacturer </span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>pca_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(scores, <span class="fu">aes</span>(PC1, PC2, <span class="at">color =</span> manufacturer)) <span class="sc">+</span>  </span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">2.6</span>, <span class="at">alpha =</span> <span class="fl">0.85</span>) <span class="sc">+</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Car Manufacturers (mpg) PCA"</span>)</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>pca_plot <span class="sc">+</span> <span class="fu">stat_ellipse</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Too few points to calculate an ellipse</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 row containing missing values or values outside the scale range
+(`geom_path()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hw14qmd_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="there-is-some-variation-in-separation-along-the-x-axis-pc1-but-for-the-y-axis-pc2-there-is-not-much-separation-occuring" class="level2">
+<h2 class="anchored" data-anchor-id="there-is-some-variation-in-separation-along-the-x-axis-pc1-but-for-the-y-axis-pc2-there-is-not-much-separation-occuring">There is some variation in separation along the x-axis (PC1), but for the y-axis (PC2) there is not much separation occuring</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>pca_plot2 <span class="ot">&lt;-</span> <span class="fu">plot</span>(eig, <span class="at">type =</span> <span class="st">"b"</span>, <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Principal component"</span>,</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Eigenvalue"</span>,</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Scree plot (MPG PCA)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hw14qmd_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>broken_stick <span class="ot">&lt;-</span> <span class="cf">function</span>(p) <span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span>p, <span class="cf">function</span>(k) <span class="fu">sum</span>(<span class="dv">1</span><span class="sc">/</span>(k<span class="sc">:</span>p)) <span class="sc">/</span> p)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>bs <span class="ot">&lt;-</span> <span class="fu">broken_stick</span>(<span class="fu">ncol</span>(mpg_num))</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>retain <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">PC =</span> <span class="fu">paste0</span>(<span class="st">"PC"</span>, <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(pve)),</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ObservedPVE =</span> <span class="fu">round</span>(pve, <span class="dv">3</span>),</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">BrokenStick =</span> <span class="fu">round</span>(bs, <span class="dv">3</span>),</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Keep =</span> pve <span class="sc">&gt;</span> bs</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>retain</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   PC ObservedPVE BrokenStick  Keep
+1 PC1       0.704       0.457  TRUE
+2 PC2       0.203       0.257 FALSE
+3 PC3       0.071       0.157 FALSE
+4 PC4       0.014       0.090 FALSE
+5 PC5       0.008       0.040 FALSE</code></pre>
+</div>
+</div>
+</section>
+<section id="one-pc-is-needed" class="level2">
+<h2 class="anchored" data-anchor-id="one-pc-is-needed">One PC is needed</h2>
+</section>
+<section id="due-to-the-steep-difference-in-values-on-the-scree-plot-for-pc1-and-pc2-and-smaller-eigen-values-for-other-pcs-the-variance-was-explained-by-both-of-the-pcs" class="level2">
+<h2 class="anchored" data-anchor-id="due-to-the-steep-difference-in-values-on-the-scree-plot-for-pc1-and-pc2-and-smaller-eigen-values-for-other-pcs-the-variance-was-explained-by-both-of-the-pcs">Due to the steep difference in values on the scree plot for PC1 and PC2, and smaller eigen values for other PCs, the variance was explained by both of the PCs</h2>
+</section>
+<section id="the-bartletts-test-had-a-p-value-of-2.044721e-272-which-is-statistically-significant-showing-there-is-a-difference-between-groups" class="level2">
+<h2 class="anchored" data-anchor-id="the-bartletts-test-had-a-p-value-of-2.044721e-272-which-is-statistically-significant-showing-there-is-a-difference-between-groups">The bartletts test had a p-value of 2.044721e-272, which is statistically significant, showing there is a difference between groups</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>pca<span class="sc">$</span>rotation</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              PC1         PC2        PC3         PC4         PC5
+displ  0.49818034 -0.07540283  0.4897111  0.70386376 -0.10435326
+year   0.06047629 -0.98055060 -0.1846807 -0.01604536  0.02233245
+cyl    0.49820578 -0.04868461  0.5028416 -0.68062021  0.18255766
+cty   -0.50575849 -0.09911736  0.4348234  0.15195854  0.72264881
+hwy   -0.49412379 -0.14366800  0.5330619 -0.13410105 -0.65807527</code></pre>
+</div>
+</div>
+</section>
+<section id="the-variables-contributing-the-most-to-pc1-are-displ-cyl-cty-and-hwy" class="level2">
+<h2 class="anchored" data-anchor-id="the-variables-contributing-the-most-to-pc1-are-displ-cyl-cty-and-hwy">The variables contributing the most to PC1 are displ, cyl, cty, and hwy</h2>
+</section>
+<section id="the-variable-contributing-the-most-to-pc2-is-year" class="level2">
+<h2 class="anchored" data-anchor-id="the-variable-contributing-the-most-to-pc2-is-year">The variable contributing the most to PC2 is year</h2>
+</section>
+</section>
+<section id="random-forest" class="level1">
+<h1>Random forest</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>manufacturer<span class="ot">&lt;-</span><span class="fu">as.factor</span>(mpg<span class="sc">$</span>manufacturer)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mpg<span class="sc">$</span>manufacturer)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "factor"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>id_train <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">seq_len</span>(<span class="fu">nrow</span>(mpg)), <span class="at">size =</span> <span class="fl">0.7</span> <span class="sc">*</span> <span class="fu">nrow</span>(mpg))</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> mpg[id_train, ]</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>test  <span class="ot">&lt;-</span> mpg[<span class="sc">-</span>id_train, ]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="confusion-matrix" class="level3">
+<h3 class="anchored" data-anchor-id="confusion-matrix">confusion matrix</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>rf <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  manufacturer <span class="sc">~</span> ., <span class="at">data =</span> train,</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ntree =</span> <span class="dv">500</span>,</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">mtry =</span> <span class="dv">2</span>,</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">importance =</span> <span class="cn">TRUE</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>rf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+ randomForest(formula = manufacturer ~ ., data = train, ntree = 500,      mtry = 2, importance = TRUE) 
+               Type of random forest: classification
+                     Number of trees: 500
+No. of variables tried at each split: 2
+
+        OOB estimate of  error rate: 24.54%
+Confusion matrix:
+           audi chevrolet dodge ford honda hyundai jeep land rover lincoln
+audi         13         0     0    0     0       0    0          0       0
+chevrolet     0         5     2    0     0       1    2          0       0
+dodge         0         0    21    1     0       0    0          0       0
+ford          0         1     3   12     0       0    0          0       0
+honda         0         0     0    0     6       0    0          0       0
+hyundai       0         0     0    0     0      13    0          0       0
+jeep          0         0     2    1     0       0    2          0       0
+land rover    0         0     1    0     0       0    0          2       0
+lincoln       0         1     0    1     0       0    0          0       0
+mercury       0         0     0    4     0       0    0          0       0
+nissan        0         1     0    0     0       0    0          0       1
+pontiac       0         1     0    0     0       0    0          0       0
+subaru        0         0     0    0     0       0    0          0       0
+toyota        0         0     2    0     0       0    0          0       0
+volkswagen    0         1     0    0     1       0    0          0       0
+           mercury nissan pontiac subaru toyota volkswagen class.error
+audi             0      0       0      0      0          0   0.0000000
+chevrolet        0      1       1      0      0          2   0.6428571
+dodge            0      0       0      0      2          0   0.1250000
+ford             2      0       0      0      0          0   0.3333333
+honda            0      0       0      0      0          1   0.1428571
+hyundai          0      0       0      0      0          0   0.0000000
+jeep             0      0       0      0      0          0   0.6000000
+land rover       0      0       0      0      0          0   0.3333333
+lincoln          0      0       0      0      0          0   1.0000000
+mercury          0      0       0      0      0          0   1.0000000
+nissan           2      4       0      0      2          0   0.6000000
+pontiac          0      0       3      0      0          0   0.2500000
+subaru           0      0       0      8      0          0   0.0000000
+toyota           0      0       0      0     19          0   0.0952381
+volkswagen       0      0       0      0      0         15   0.1176471</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf, <span class="at">newdata =</span> test)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>conf <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">Observed =</span> test<span class="sc">$</span>hwy, <span class="at">Predicted =</span> pred)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>conf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Predicted
+Observed audi chevrolet dodge ford honda hyundai jeep land rover lincoln
+      12    0         0     2    0     0       0    0          0       0
+      14    0         0     1    0     0       0    0          0       0
+      15    0         0     2    0     0       0    0          0       0
+      17    0         2     5    4     0       0    0          0       0
+      18    0         0     2    1     0       0    0          0       0
+      19    0         0     1    1     0       0    0          0       0
+      20    2         2     0    0     0       0    0          0       0
+      21    0         0     1    0     0       0    0          0       0
+      22    0         0     1    1     0       0    0          0       0
+      23    1         0     1    0     0       0    0          0       0
+      24    0         0     0    0     0       0    0          0       0
+      25    1         1     0    0     0       0    0          0       0
+      26    2         0     0    1     0       0    0          0       0
+      27    3         0     0    0     0       0    0          0       0
+      28    0         0     0    0     0       0    0          0       0
+      29    1         0     0    0     0       0    0          0       0
+      31    1         0     0    0     0       0    0          0       0
+      32    1         0     0    0     0       0    0          0       0
+      33    0         0     0    0     0       0    0          0       0
+      34    0         0     0    0     1       0    0          0       0
+      35    0         0     0    0     0       0    0          0       0
+      36    0         0     0    0     1       0    0          0       0
+      37    0         0     0    0     0       0    0          0       0
+      44    0         0     0    0     0       0    0          0       0
+        Predicted
+Observed mercury nissan pontiac subaru toyota volkswagen
+      12       0      0       0      0      0          0
+      14       0      0       0      0      0          0
+      15       0      0       0      0      0          0
+      17       0      0       0      0      0          0
+      18       0      1       0      0      0          0
+      19       0      0       0      0      0          0
+      20       0      0       0      0      0          0
+      21       0      0       0      0      0          0
+      22       0      0       0      1      0          0
+      23       0      0       0      0      0          0
+      24       0      1       0      0      0          0
+      25       0      0       0      2      0          0
+      26       0      0       0      3      0          2
+      27       0      1       0      1      0          0
+      28       0      1       0      0      0          2
+      29       0      0       0      0      0          7
+      31       0      0       0      0      2          0
+      32       0      0       0      0      0          0
+      33       0      0       0      0      1          0
+      34       0      0       0      0      0          0
+      35       0      0       0      0      1          0
+      36       0      0       0      0      0          0
+      37       0      0       0      0      1          0
+      44       0      0       0      0      0          1</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(rf, <span class="at">main =</span> <span class="st">"Random forest OOB error vs city mpg"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hw14qmd_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">importance</span>(rf)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            audi  chevrolet     dodge      ford     honda   hyundai       jeep
+model 30.0063327 13.2053894 19.305531 17.476672 14.255490 29.219308  8.3557357
+displ 13.9216177 14.0818981 20.211275 14.944725 20.113021 15.713057  2.3595484
+year  -0.9120938 -4.5247909  1.151450 -1.461440  2.370089  2.975637 -4.1917520
+cyl    5.7491479  7.7719683 11.134428 -1.301053  9.433089  2.240599  0.9531524
+trans  1.5717645  2.6831532  3.906831 -4.921123 -2.353919 -6.115889  2.3008674
+drv    3.4693942 12.7261117  9.403095 14.645593  9.285159 15.359576  3.3186166
+cty    2.8963278  0.6579061 17.988944  7.944029 14.046268  7.314227  0.2601905
+hwy    9.1938292 -0.5994375 16.755899  5.426033 14.899705 10.450070  1.0081218
+fl    18.1190118  8.8665459  7.729044  7.856219  1.156827 10.948237  1.9090076
+class 16.0677170 12.7761846 13.685927  9.305179 13.333486  8.299212  7.9391886
+      land rover   lincoln   mercury    nissan   pontiac     subaru     toyota
+model  10.084532  5.342399  7.417162  7.390611  9.817170 12.8528696 25.8419552
+displ   5.180824  4.910093  2.966428  6.574629  6.130980 17.1429929  8.1167742
+year    2.321817 -2.008048 -3.256339  2.207895 -2.318077 -0.4698802 -0.6257031
+cyl     6.723878  2.851330 -4.483000  4.064322  5.359172 11.6881498  5.6488469
+trans   2.120044 -1.948810  1.964444 -5.237944  6.232204 -0.5805139 -4.4112445
+drv     3.214696  6.321139  3.411328  5.655354  6.108280 15.8826246 13.6886723
+cty    10.084532  3.308913  7.049296  5.201643  1.468515 11.3493291 12.7379582
+hwy     7.701211  1.702664  2.708852  4.580979  5.686189  8.5179907 10.3916939
+fl      5.126992 -3.353721  3.974251  4.647840 -5.874029 -2.6350038 12.9467765
+class   8.620117  3.932419  7.133239  7.816729  8.465734  4.7710004 13.7764531
+      volkswagen MeanDecreaseAccuracy MeanDecreaseGini
+model  18.683358           43.3999979        36.703564
+displ  17.393560           33.5327465        21.936736
+year    1.457389           -0.9113238         3.216460
+cyl     7.842187           15.5621213         5.169446
+trans   3.043341           -1.0026441         7.330700
+drv    14.839602           27.2719245         9.021970
+cty     8.797252           26.6655589        14.473807
+hwy    10.373111           22.4286619        14.084942
+fl      7.483312           22.1427715         7.401343
+class  13.799522           26.1067078        15.088569</code></pre>
+</div>
+</div>
+</section>
+<section id="oob-estimate-of-error-rate-24.54" class="level2">
+<h2 class="anchored" data-anchor-id="oob-estimate-of-error-rate-24.54">OOB estimate of error rate = 24.54%</h2>
+</section>
+<section id="based-on-my-confusion-matrix-it-was-somewhat-accurate-at-classifying-some-car-manufacturers-were-classified-very-accurately-while-others-were-less-accurate" class="level2">
+<h2 class="anchored" data-anchor-id="based-on-my-confusion-matrix-it-was-somewhat-accurate-at-classifying-some-car-manufacturers-were-classified-very-accurately-while-others-were-less-accurate">Based on my confusion matrix, it was somewhat accurate at classifying, some car manufacturers were classified very accurately while others were less accurate</h2>
+</section>
+<section id="the-more-abundant-a-car-manufacturer-it-generally-was-more-accurate-when-classified-and-vice-versa" class="level2">
+<h2 class="anchored" data-anchor-id="the-more-abundant-a-car-manufacturer-it-generally-was-more-accurate-when-classified-and-vice-versa">The more abundant a car manufacturer it generally was more accurate when classified, and vice versa</h2>
+</section>
+<section id="variables-the-most-important-based-on" class="level2">
+<h2 class="anchored" data-anchor-id="variables-the-most-important-based-on">Variables the most important based on:</h2>
+</section>
+<section id="mean-decrease-accuracy-model-was-the-greatest-value-then-displ-drv-cty-then-class." class="level2">
+<h2 class="anchored" data-anchor-id="mean-decrease-accuracy-model-was-the-greatest-value-then-displ-drv-cty-then-class.">Mean Decrease Accuracy: model was the greatest value, then displ, drv, cty, then class.</h2>
+</section>
+<section id="mean-decrease-gini-model-had-the-greatest-value-then-displ-class-cty-and-highway." class="level2">
+<h2 class="anchored" data-anchor-id="mean-decrease-gini-model-had-the-greatest-value-then-displ-class-cty-and-highway.">Mean Decrease Gini: model had the greatest value, then displ, class, cty, and highway.</h2>
+</section>
+</section>
+<section id="summary-and-output" class="level1">
+<h1>Summary and Output:</h1>
+<section id="my-two-models-agreed-a-little-bit-on-variable-importance.-year-was-the-most-important-with-the-pcas-but-was-only-minorly-important-for-random-forest." class="level2">
+<h2 class="anchored" data-anchor-id="my-two-models-agreed-a-little-bit-on-variable-importance.-year-was-the-most-important-with-the-pcas-but-was-only-minorly-important-for-random-forest.">My two models agreed a little bit on variable importance. Year was the most important with the PCAs but was only minorly important for random forest.</h2>
+</section>
+<section id="model-displ-class-and-fl-were-the-most-important-variables-for-random-forest-while-displ-cyl-cty-hwy-and-year-were-the-most-importat-for-the-pcas" class="level2">
+<h2 class="anchored" data-anchor-id="model-displ-class-and-fl-were-the-most-important-variables-for-random-forest-while-displ-cyl-cty-hwy-and-year-were-the-most-importat-for-the-pcas">model, displ, class, and fl were the most important variables for random forest, while displ, cyl, cty, hwy, and year were the most importat for the PCAs</h2>
+</section>
+<section id="the-random-forest-broke-down-the-data-more-specifically-for-each-car-manufacturer-providing-more-data-for-each-manufacturer" class="level2">
+<h2 class="anchored" data-anchor-id="the-random-forest-broke-down-the-data-more-specifically-for-each-car-manufacturer-providing-more-data-for-each-manufacturer">The random forest broke down the data more specifically for each car manufacturer, providing more data for each manufacturer,</h2>
+</section>
+<section id="while-the-pca-test-only-provided-data-for-some-of-the-variables-for-each-pca-test-which-seemed-to-get-at-more-of-an-overview-for-each-manufacturere" class="level2">
+<h2 class="anchored" data-anchor-id="while-the-pca-test-only-provided-data-for-some-of-the-variables-for-each-pca-test-which-seemed-to-get-at-more-of-an-overview-for-each-manufacturere">while the PCA test only provided data for some of the variables for each PCA test, which seemed to get at more of an overview for each manufacturere,</h2>
+</section>
+<section id="while-you-could-see-much-more-variance-in-the-data-for-many-variables-for-each-manufacturer-with-random-forest" class="level2">
+<h2 class="anchored" data-anchor-id="while-you-could-see-much-more-variance-in-the-data-for-many-variables-for-each-manufacturer-with-random-forest">while you could see much more variance in the data for many variables for each manufacturer with random forest</h2>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

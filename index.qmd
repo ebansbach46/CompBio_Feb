@@ -30,3 +30,13 @@ title: "CompBio_Feb"
 ## Link to Homework 11 in repo:
 https://github.com/ebansbach46/CA_SIR_6100.git
 
+[Homework 12](hw12_final.html)
+-------------------------------
+
+[Homework 13](hw13.html)
+-------------------------------
+
+[Homework 14](hw14qmd.html)
+-------------------------------
+
+
